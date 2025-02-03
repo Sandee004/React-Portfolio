@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
-import type React from "react"; // Added import for React
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -25,12 +24,12 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 mt-8 bg-white dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center text-text dark:text-white">
           Get in Touch
         </h2>
-        <div className="max-w-3xl mx-auto bg-background dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+        <div className="max-w-3xl mx-auto bg-background dark:bg-gray-700 p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -46,7 +45,7 @@ export function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 text-text dark:text-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-green-300"
+                  className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 />
               </div>
@@ -63,7 +62,7 @@ export function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 text-text dark:text-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-green-300"
+                  className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 />
               </div>
@@ -81,13 +80,13 @@ export function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 text-text dark:text-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-green-300"
+                className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 required
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-primary dark:bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-secondary dark:hover:bg-green-700 transition duration-300 flex items-center justify-center"
+              className="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-secondary transition duration-300 flex items-center justify-center"
             >
               Send Message
               <Send className="ml-2" size={20} />

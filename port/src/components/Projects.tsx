@@ -28,7 +28,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 mt-8 bg-background dark:bg-gray-900"
+      className="py-20 mt-8 bg-background dark:bg-gray-900 shadow-lg"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center text-text dark:text-white">

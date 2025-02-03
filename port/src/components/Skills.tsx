@@ -3,17 +3,37 @@ import { SiTypescript, SiFlask, SiMongodb } from "react-icons/si";
 
 export function Skills() {
   const skills = [
-    { name: "JavaScript", level: 75, icon: <FaJs /> },
-    { name: "TypeScript", level: 70, icon: <SiTypescript /> },
-    { name: "React", level: 85, icon: <FaReact /> },
-    { name: "Flask", level: 88, icon: <SiFlask /> },
-    { name: "MongoDB", level: 70, icon: <SiMongodb /> },
+    {
+      name: "JavaScript",
+      level: 75,
+      icon: <FaJs className="text-black dark:text-white" />,
+    },
+    {
+      name: "TypeScript",
+      level: 70,
+      icon: <SiTypescript className="text-black dark:text-white" />,
+    },
+    {
+      name: "React",
+      level: 85,
+      icon: <FaReact className="text-black dark:text-white" />,
+    },
+    {
+      name: "Flask",
+      level: 88,
+      icon: <SiFlask className="text-black dark:text-white" />,
+    },
+    {
+      name: "MongoDB",
+      level: 70,
+      icon: <SiMongodb className="text-black dark:text-white" />,
+    },
   ];
 
   return (
     <section
       id="skills"
-      className="py-20 pt-[30px] bg-white dark:bg-background dark:bg-gray-900"
+      className="py-20 pt-[30px] bg-white dark:bg-background dark:bg-gray-900 shadow-lg"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center text-text dark:text-white">

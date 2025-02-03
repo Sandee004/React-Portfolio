@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./darkmode";
+import { DarkModeToggle } from "./darkmode";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +27,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <ThemeToggle />
+          <DarkModeToggle />
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"

@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --color-background: #f0f4f0;
@@ -11,6 +9,7 @@
   --color-text-light: #34495e;
 }
 
+/* Animations */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -54,6 +53,7 @@
 .animate-fade-in {
   animation: fade-in 0.5s ease-out;
 }
+
 @keyframes slide-down {
   from {
     transform: translateY(-20px);
