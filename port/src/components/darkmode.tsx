@@ -21,7 +21,7 @@ export function DarkModeToggle() {
     <div className="flex items-center">
       <button
         onClick={toggleDarkMode}
-        className="p-2 rounded-full text-text hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+        className="p-2 rounded-full text-text hover:bg-gray-200 dark:bg-gray-300 dark:hover:bg-gray-700 transition duration-300"
         aria-label="Toggle dark mode"
       >
         {darkMode ? <Sun /> : <Moon />}
