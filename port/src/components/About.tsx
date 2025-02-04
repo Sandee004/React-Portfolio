@@ -8,7 +8,7 @@ export function About() {
               Sandra Oyarekhua
             </h1>
             <h2
-              className="text-3xl text-primary dark:text-green-300 mb-4 animate-slide-in"
+              className="text-3xl text-green-500 dark:text-green-300 mb-4 animate-slide-in"
               style={{ animationDelay: "0.2s" }}
             >
               Full Stack Developer
@@ -33,16 +33,17 @@ export function About() {
               ways to push boundaries and make an impact.
             </p>
             <a
-              href="/john-doe-resume.pdf"
+              href="https://drive.google.com/file/d/1Im2gmfQQv74FQP_KjwJse7WNL19rIxJb/view?pli=1"
               className="bg-black dark:bg-white dark:text-black text-white px-6 py-3 rounded-md hover:bg-transparent hover:border-2 hover:border-green-500 dark:hover:border-green-300 hover:text-black dark:hover:text-white transition duration-300 animate-fade-in"
               style={{ animationDelay: "0.6s" }}
             >
-              Download Resume
+              View Resume
             </a>
           </div>
-          <div className="md:w-1/2 justify-center flex">
-            <div
-              className="rounded-lg shadow-xl animate-float h-[300px] w-[300px] dark:bg-gray-800"
+          <div className="md:w-1/2 justify-center mt-8 flex">
+            <img
+              src="/src/assets/me.jpg"
+              className="rounded-lg shadow-xl border-2 border-green-500 animate-float h-[350px] w-[350px] dark:bg-gray-800"
               style={{ animationDelay: "0.3s" }}
             />
           </div>

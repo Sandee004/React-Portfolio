@@ -16,10 +16,9 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 dark:border-green-500 dark:border-b-2 bg-white dark:bg-gray-900 shadow-md z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo on the Left */}
         <a
           href="#about"
-          className="text-3xl font-bold text-primary dark:text-white"
+          className="text-3xl font-bold text-primary dark:text-white font-Italianno"
           onClick={(e) => {
             e.preventDefault();
             handleSmoothScroll("about");
@@ -28,7 +27,6 @@ export function Header() {
           Sandee
         </a>
 
-        {/* Desktop Navigation & Dark Mode Toggle */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex space-x-6">
             {["About", "Skills", "Projects", "Contact"].map((item) => (
@@ -48,17 +46,20 @@ export function Header() {
           <DarkModeToggle />
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 dark:text-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X /> : <Menu />}
-        </button>
+        <div className="flex md:hidden">
+          <div className="md:hidden">
+            <DarkModeToggle />
+          </div>
+          <button
+            className="md:hidden p-2 dark:text-white"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Navigation (Overlay) */}
       {isMenuOpen && (
         <div className="md:hidden fixed top-16 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg z-50 animate-slide-down">
           <nav className="py-4 flex flex-col items-center space-y-4">

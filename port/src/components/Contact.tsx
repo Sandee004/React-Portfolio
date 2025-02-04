@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Send } from "lucide-react";
 
 export function Contact() {
@@ -7,20 +7,52 @@ export function Contact() {
     email: "",
     message: "",
   });
+  const [submitMessage, setSubmitMessage] = useState(""); // For feedback messages
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  interface ChangeEvent {
+    target: {
+      name: string;
+      value: string;
+    };
+  }
+
+  const handleChange = (e: ChangeEvent) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
+    setSubmitMessage(""); // Clear previous messages
+
+    try {
+      const response = await fetch("http://localhost:5000/send_email", {
+        // Or your full URL in production
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Email sent successfully");
+        setFormData({ name: "", email: "", message: "" });
+        setSubmitMessage("Message sent successfully!"); // Display success message
+      } else {
+        console.error("Error sending email:", data.error || "Server error"); // More robust error handling
+        setSubmitMessage(
+          `Error sending message: ${data.error || "Server error"}`
+        ); // Display error message
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitMessage("An unexpected error occurred."); // Display generic error message
+    }
   };
 
   return (
@@ -80,17 +112,22 @@ export function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
+                style={{ resize: "none" }}
                 className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 required
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-secondary transition duration-300 flex items-center justify-center"
+              className="w-full bg-green-700 text-white font-bold py-3 px-4 rounded-lg hover:bg-secondary transition duration-300 flex items-center justify-center hover:bg-green-600"
             >
               Send Message
               <Send className="ml-2" size={20} />
             </button>
+            {submitMessage && (
+              <p className="mt-2 text-center">{submitMessage}</p>
+            )}{" "}
+            {/* Feedback message */}
           </form>
         </div>
       </div>

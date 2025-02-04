@@ -5,23 +5,51 @@ export function Projects() {
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description:
-        "A full-stack e-commerce solution with React, Node.js, and MongoDB.",
-      image: "/placeholder.svg?height=300&width=400",
-      link: "https://github.com/johndoe/ecommerce-platform",
+      title: "KidsFlix",
+      description: (
+        <>
+          A web app built with{" "}
+          <span className="text-green-500">
+            React, Flask, SqlAlchemy and IMDB API
+          </span>{" "}
+          for recommending movies specifically safe for kids. An alternative to
+          Netflix but for kids. Users can browse movies and are only prompted to
+          sign up when they wish to add movies to favorites to revisit later.
+        </>
+      ),
+      image: "/src/assets/kidsflix.jpg",
+      liveLink: "https://kidsflix-frontend.onrender.com/",
+      githubLink: "https://github.com/Sandee004/KidsFlix-Frontend",
     },
     {
-      title: "Task Management App",
-      description: "A React Native mobile app for managing tasks and projects.",
-      image: "/placeholder.svg?height=300&width=400",
-      link: "https://github.com/johndoe/task-management-app",
+      title: "AgroFind",
+      description: (
+        <>
+          <span className="font-semibold">AgroFind</span> is an AI-powered
+          chatbot designed to help identify plants and detect visible diseases
+          or pest infestations. Built with{" "}
+          <span className="text-green-500">Gemini AI</span>, it processes
+          user-uploaded images (JPG, JPEG, PNG) and provides insights based on
+          noticeable plant features.
+        </>
+      ),
+      image: "/src/assets/agrofind.jpg",
+      liveLink: "https://agrofind.onrender.com/",
+      githubLink: "https://github.com/Sandee004/AgroFind",
     },
     {
-      title: "Weather Dashboard",
-      description: "A weather dashboard using OpenWeatherMap API and Vue.js.",
-      image: "/placeholder.svg?height=300&width=400",
-      link: "https://github.com/johndoe/weather-dashboard",
+      title: "Voterz",
+      description: (
+        <>
+          <span className="font-semibold">Voterz</span> is an online voting
+          platform for organizing intra-business elections, such as school or
+          company elections. It streamlines the voting process and automates
+          result curation, making elections more efficient and secure.
+        </>
+      ),
+      image: "/src/assets/voterz.jpg",
+      liveLink: "https://votingapp-frontend.onrender.com/",
+      githubLink: "https://github.com/Sandee004/Voting-App",
     },
   ];
 
@@ -43,15 +71,16 @@ export function Projects() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="relative">
-                <div
-                  //src={project.image || "/placeholder.svg"}
-                  //alt={project.title}
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-48 object-cover bg-gray-200 dark:bg-gray-700"
                 />
                 {hoveredIndex === index && (
-                  <div className="absolute inset-0 bg-green-600 dark:bg-green-500 bg-opacity-90 flex items-center justify-center transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-green-600 dark:bg-green-500 bg-opacity-90 flex flex-col items-center justify-center transition-opacity duration-300 gap-2">
+                    {/* GitHub Link */}
                     <a
-                      href={project.link}
+                      href={project.githubLink}
                       className="text-white text-lg font-semibold hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -61,6 +90,7 @@ export function Projects() {
                   </div>
                 )}
               </div>
+
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-text dark:text-white">
                   {project.title}
@@ -68,8 +98,9 @@ export function Projects() {
                 <p className="text-text-light dark:text-gray-300">
                   {project.description}
                 </p>
+
                 <a
-                  href={project.link}
+                  href={project.liveLink}
                   className="mt-4 inline-block text-green-600 dark:text-green-400 font-semibold hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
