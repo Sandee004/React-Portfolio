@@ -80,7 +80,7 @@ export function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-600 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 />
               </div>
@@ -97,7 +97,7 @@ export function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-600 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   required
                 />
               </div>
@@ -116,7 +116,7 @@ export function Contact() {
                 onChange={handleChange}
                 rows={4}
                 style={{ resize: "none" }}
-                className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 text-text dark:text-white bg-white dark:bg-gray-800 border border-gray-600 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 required
               ></textarea>
             </div>
