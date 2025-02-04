@@ -17,7 +17,7 @@ export function Projects() {
           sign up when they wish to add movies to favorites to revisit later.
         </>
       ),
-      image: "/src/assets/kidsflix.jpg",
+      image: "/kidsflix.jpg",
       liveLink: "https://kidsflix-frontend.onrender.com/",
       githubLink: "https://github.com/Sandee004/KidsFlix-Frontend",
     },
@@ -33,7 +33,7 @@ export function Projects() {
           noticeable plant features.
         </>
       ),
-      image: "/src/assets/agrofind.jpg",
+      image: "/agrofind.jpg",
       liveLink: "https://agrofind.onrender.com/",
       githubLink: "https://github.com/Sandee004/AgroFind",
     },
@@ -47,7 +47,7 @@ export function Projects() {
           result curation, making elections more efficient and secure.
         </>
       ),
-      image: "/src/assets/voterz.jpg",
+      image: "/voterz.jpg",
       liveLink: "https://votingapp-frontend.onrender.com/",
       githubLink: "https://github.com/Sandee004/Voting-App",
     },
