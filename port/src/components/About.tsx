@@ -42,8 +42,8 @@ export function About() {
           </div>
           <div className="md:w-1/2 justify-center mt-8 flex">
             <img
-              src="/me.jpg"
-              className="rounded-lg shadow-xl border-2 border-green-500 animate-float h-[350px] w-[350px] dark:bg-gray-800"
+              src="/me2.jpg"
+              className="rounded-lg shadow-xl border-2 border-green-500 animate-float h-[370px] w-[370px] dark:bg-gray-800"
               style={{ animationDelay: "0.3s" }}
             />
           </div>

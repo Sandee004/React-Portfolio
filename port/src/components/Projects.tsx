@@ -51,6 +51,21 @@ export function Projects() {
       liveLink: "https://votingapp-frontend.onrender.com/",
       githubLink: "https://github.com/Sandee004/Voting-App",
     },
+    {
+      title: "Iyare Motors Web App",
+      description: (
+        <>
+          A web app built with{" "}
+          <span className="text-green-500">React, Flask and SqlAlchemy</span>{" "}
+          for Iyare Motors to handle online ticket purchases and reservations.
+          This helps the company to manage their bookings and customers more
+          efficiently.
+        </>
+      ),
+      image: "/ticket.jpg",
+      liveLink: "https://iyare.onrender.com",
+      githubLink: "https://github.com/Sandee004/Iyare/",
+    },
   ];
 
   return (
