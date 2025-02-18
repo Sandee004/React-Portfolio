@@ -38,6 +38,21 @@ export function Projects() {
       githubLink: "https://github.com/Sandee004/AgroFind",
     },
     {
+      title: "Altfeed",
+      description: (
+        <>
+          <span className="font-semibold">Altfeed</span> is a web app built for
+          the FMN Prize For Innovation hackathon. The web app is created to help
+          farmers discover non-conventional animal feeds. It offers sustainable
+          and cost-effective alternatives to traditional feeds, empowering
+          farmers to optimize nutrition while reducing costs.
+        </>
+      ),
+      image: "/altfeed.jpg",
+      liveLink: "https://altfeed.onrender.com",
+      githubLink: "https://github.com/Sandee004/Altfeed",
+    },
+    {
       title: "Voterz",
       description: (
         <>
