@@ -33,7 +33,7 @@ export function About() {
               ways to push boundaries and make an impact.
             </p>
             <a
-              href="https://drive.google.com/file/d/1RNLe9KB0ws0ubfwUe-CdKjVgLHt_b2-h/view"
+              href="https://drive.google.com/file/d/1Im2gmfQQv74FQP_KjwJse7WNL19rIxJb/view?pli=1"
               className="bg-black dark:bg-white dark:text-black text-white px-6 py-3 rounded-md hover:bg-transparent hover:border-2 hover:border-green-500 dark:hover:border-green-300 hover:text-black dark:hover:text-white transition duration-300 animate-fade-in"
               style={{ animationDelay: "0.6s" }}
             >
