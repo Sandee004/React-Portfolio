@@ -15,25 +15,28 @@ export function About() {
             </h2>
             <p
               className="text-text-light dark:text-gray-300 mb-6 animate-fade-in"
-              style={{ animationDelay: "0.4s" }}
+              style={{ animationDelay: "0.2s" }}
             >
-              I enjoy building efficient, scalable solutions and exploring how
-              technology intersects with everyday challenges. With a background
-              in agriculture and agroinformatics, I’m particularly interested in
-              creating tech-driven solutions for sustainability and food
-              systems.
+              I specialize in building efficient, scalable web and mobile
+              applications—from user-focused interfaces to powerful backend
+              systems. With experience across fullstack development, I work
+              confidently with tools like React, TypeScript, Tailwind, Flask,
+              and PostgreSQL to ship clean, production-ready products.
             </p>
             <p
               className="text-text-light dark:text-gray-300 mb-6 animate-fade-in"
               style={{ animationDelay: "0.4s" }}
             >
-              Beyond coding, I love writing, speaking at tech events, and
-              experimenting with new ideas—whether in software, automation, or
-              emerging innovations like lab-grown food. I'm always looking for
-              ways to push boundaries and make an impact.
+              I’ve also built and integrated Web3 backend services using
+              technologies like ethers.js and web3, and I pay close attention to
+              performance, modularity, and real-world usability. Whether it's a
+              PWA, a crypto wallet flow, or an offline-first feed app for
+              farmers, I care about doing the job well—and making sure it
+              actually works where it matters.
             </p>
+
             <a
-              href="https://drive.google.com/file/d/1RNLe9KB0ws0ubfwUe-CdKjVgLHt_b2-h/view"
+              href="https://drive.google.com/file/d/1ZyG5YxtmQBMoroMIRfiv_gtLUuTrMcLa/view?usp=sharing"
               className="bg-black dark:bg-white dark:text-black text-white px-6 py-3 rounded-md hover:bg-transparent hover:border-2 hover:border-green-500 dark:hover:border-green-300 hover:text-black dark:hover:text-white transition duration-300 animate-fade-in"
               style={{ animationDelay: "0.6s" }}
             >
@@ -42,8 +45,8 @@ export function About() {
           </div>
           <div className="md:w-1/2 justify-center mt-8 flex">
             <img
-              src="/me2.jpg"
-              className="rounded-lg shadow-xl border-2 border-green-500 animate-float h-[370px] w-[370px] dark:bg-gray-800"
+              src="/me3.jpg"
+              className="rounded-lg shadow-xl border-2 border-green-500 animate-float h-[380px] w-[340px] dark:bg-gray-800"
               style={{ animationDelay: "0.3s" }}
             />
           </div>

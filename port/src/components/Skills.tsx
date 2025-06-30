@@ -1,30 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { FaJs, FaReact } from "react-icons/fa";
+import { FaReact, FaGithub } from "react-icons/fa";
 import {
   SiTypescript,
   SiFlask,
   SiMongodb,
-  SiHtml5,
   SiTailwindcss,
   SiPython,
+  SiExpo,
+  SiPostgresql,
+  SiWeb3Dotjs,
+  SiSwagger,
 } from "react-icons/si";
 
 export function Skills() {
   const skills = [
     {
-      name: "HTML",
-      level: 90,
-      icon: <SiHtml5 className="text-black dark:text-white" />,
-    },
-    {
-      name: "TailwindCSS",
+      name: "React",
       level: 85,
-      icon: <SiTailwindcss className="text-black dark:text-white" />,
-    },
-    {
-      name: "JavaScript",
-      level: 75,
-      icon: <FaJs className="text-black dark:text-white" />,
+      icon: <FaReact className="text-black dark:text-white" />,
     },
     {
       name: "TypeScript",
@@ -32,8 +25,13 @@ export function Skills() {
       icon: <SiTypescript className="text-black dark:text-white" />,
     },
     {
-      name: "React",
+      name: "TailwindCSS",
       level: 85,
+      icon: <SiTailwindcss className="text-black dark:text-white" />,
+    },
+    {
+      name: "React Native",
+      level: 65,
       icon: <FaReact className="text-black dark:text-white" />,
     },
     {
@@ -51,12 +49,39 @@ export function Skills() {
       level: 72,
       icon: <SiPython className="text-black dark:text-white" />,
     },
+    {
+      name: "Expo",
+      level: 68,
+      icon: <SiExpo className="text-black dark:text-white" />,
+    },
+    {
+      name: "PostgreSQL",
+      level: 68,
+      icon: <SiPostgresql className="text-black dark:text-white" />,
+    },
+    {
+      name: "Swagger",
+      level: 75,
+      icon: <SiSwagger className="text-black dark:text-white" />,
+    },
+
+    {
+      name: "GitHub",
+      level: 80,
+      icon: <FaGithub className="text-black dark:text-white" />,
+    },
+    {
+      name: "Web3",
+      level: 65,
+      icon: <SiWeb3Dotjs className="text-black dark:text-white" />,
+    },
   ];
 
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const currentSection = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -69,13 +94,13 @@ export function Skills() {
       { threshold: 0.5 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSection) {
+      observer.observe(currentSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, []);
