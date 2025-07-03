@@ -81,6 +81,37 @@ export function Projects() {
       liveLink: "https://iyare.onrender.com",
       githubLink: "https://github.com/Sandee004/Iyare/",
     },
+    {
+      title: "Robotaxi",
+      description: (
+        <>
+          <span className="font-semibold">Robotaxi</span> is a website built to
+          introduce people to a newly lauched coin - Robotaxi. It contains its
+          Contract Address, approximated value in circulation, steps to getting
+          and trading it as well as link to the etherscan, dexscreener and
+          uniswap of the coin.
+        </>
+      ),
+      image: "/robotaxi.jpg",
+      liveLink: "https://www.robotaxioneth.xyz/",
+      githubLink: "https://github.com/Sandee004/RoboTaxi",
+    },
+    {
+      title: "CreatorMail",
+      description: (
+        <>
+          This is the backend of a hackathon project.{" "}
+          <span className="font-semibold">CreatorMail</span> is a software that
+          handles the creation of crypto addresses using the user's email. It
+          also handles and supports the tranfetr of coins from one wallet to
+          another using a person's username. Wallets creator on other platforms
+          can also be imported and used seamlessly on Creatormail.
+        </>
+      ),
+      image: "/creatormail.jpg",
+      liveLink: "https://creatormail-0nnc.onrender.com",
+      githubLink: "https://github.com/Sandee004/CreatorMail",
+    },
   ];
 
   return (
