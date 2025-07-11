@@ -5,6 +5,24 @@ export function Projects() {
 
   const projects = [
     {
+      title: "DCraftHouse",
+      description: (
+        <>
+          <span className="text-green-500 font-semibold">DCraftHouse</span> is a
+          modern eCommerce app built for effortless shopping. Users can browse
+          products freely without signing up, view rich product details, and
+          only sign in when they're ready to buy. It features a smart cart
+          system, profile dashboard with order history, and secure payment
+          integration via Paystack — making first-time purchases fast and
+          smooth. Clean design, seamless UX, and built with real-world users in
+          mind.
+        </>
+      ),
+      image: "/dcrafthouse.jpg",
+      liveLink: "https://github.com/Sandee004/DCraft-UserView",
+      githubLink: "https://github.com/Sandee004/DCraft-UserView",
+    },
+    {
       title: "KidsFlix",
       description: (
         <>
@@ -101,7 +119,7 @@ export function Projects() {
       description: (
         <>
           This is the backend of a hackathon project.{" "}
-          <span className="font-semibold">CreatorMail</span> is a software that
+          <span className="font-semibold text-green-500">CreatorMail</span> is a software that
           handles the creation of crypto addresses using the user's email. It
           also handles and supports the tranfetr of coins from one wallet to
           another using a person's username. Wallets creator on other platforms

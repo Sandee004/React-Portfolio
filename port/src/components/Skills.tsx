@@ -72,7 +72,7 @@ export function Skills() {
     },
     {
       name: "Web3",
-      level: 65,
+      level: 50,
       icon: <SiWeb3Dotjs className="text-black dark:text-white" />,
     },
   ];
