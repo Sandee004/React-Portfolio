@@ -152,7 +152,7 @@ export function Projects() {
               <div className="relative">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`Screenshot of ${project.title} project`}
                   className="w-full h-48 object-cover bg-gray-200 dark:bg-gray-700"
                 />
                 {hoveredIndex === index && (
