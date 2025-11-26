@@ -1,85 +1,105 @@
-import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { DarkModeToggle } from "./darkmode";
+import { useState } from "react";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleSmoothScroll = (id: string) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
     }
-    setIsMenuOpen(false); // Close mobile menu after clicking a link
   };
-
   return (
-    <header className="fixed top-0 left-0 right-0 dark:border-green-500 dark:border-b-2 bg-white dark:bg-gray-900 shadow-md z-50">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a
-          href="#about"
-          className="text-3xl font-bold text-primary dark:text-white font-Italianno"
-          onClick={(e) => {
-            e.preventDefault();
-            handleSmoothScroll("about");
-          }}
-        >
-          Sandee
-        </a>
-
-        <div className="hidden md:flex items-center space-x-8">
-          <nav className="flex space-x-6">
-            {["About", "Skills", "Projects", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-text dark:text-gray-300 hover:text-primary dark:hover:text-green-300 transition duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSmoothScroll(item.toLowerCase());
-                }}
-              >
-                {item}
-              </a>
-            ))}
-          </nav>
-          <DarkModeToggle />
-        </div>
-
-        <div className="flex md:hidden">
-          <div className="md:hidden">
-            <DarkModeToggle />
+    <>
+      <nav className="fixed top-0 w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800">
+        <div className="max-w-full mx-auto px-4 lg:px-16 md:px-2 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent ml-6">
+            <a href="#about">Sandee</a>
           </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex gap-8">
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-slate-300 hover:text-cyan-400 transition-colors"
+            >
+              About
+            </button>
+            <button
+              onClick={() => scrollToSection("skills")}
+              className="text-slate-300 hover:text-cyan-400 transition-colors"
+            >
+              Skills
+            </button>
+            <button
+              onClick={() => scrollToSection("experience")}
+              className="text-slate-300 hover:text-cyan-400 transition-colors"
+            >
+              Experience
+            </button>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="text-slate-300 hover:text-cyan-400 transition-colors"
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="text-slate-300 hover:text-cyan-400 transition-colors"
+            >
+              Contact
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 dark:text-white"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
 
-      {isMenuOpen && (
-        <div className="md:hidden fixed top-16 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg z-50 animate-slide-down">
-          <nav className="py-4 flex flex-col items-center space-y-4">
-            {["About", "Skills", "Projects", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                //className="text-text  transition duration-300"
-                className="block w-full dark:text-gray-300 dark:hover:text-green-300 text-left py-2 px-4 text-text hover:text-primary transition duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSmoothScroll(item.toLowerCase());
-                }}
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-slate-900 border-t border-slate-800">
+            <div className="px-4 py-4 space-y-2">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded transition-colors"
               >
-                {item}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
-    </header>
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("skills")}
+                className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded transition-colors"
+              >
+                Skills
+              </button>
+              <button
+                onClick={() => scrollToSection("experience")}
+                className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded transition-colors"
+              >
+                Experience
+              </button>
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded transition-colors"
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 rounded transition-colors"
+              >
+                Contact
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </>
   );
 }

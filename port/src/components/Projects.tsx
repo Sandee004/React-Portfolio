@@ -1,191 +1,147 @@
-import { useState } from "react";
+import { ExternalLink, Github } from "lucide-react";
 
 export function Projects() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const projects = [
     {
       title: "DCraftHouse",
-      description: (
-        <>
-          <span className="text-green-500 font-semibold">DCraftHouse</span> is a
-          modern eCommerce app built for effortless shopping. Users can browse
-          products freely without signing up, view rich product details, and
-          only sign in when they're ready to buy. It features a smart cart
-          system, profile dashboard with order history, and secure payment
-          integration via Paystack — making first-time purchases fast and
-          smooth. Clean design, seamless UX, and built with real-world users in
-          mind.
-        </>
-      ),
-      image: "/dcrafthouse.jpg",
-      liveLink: "https://github.com/Sandee004/DCraft-UserView",
-      githubLink: "https://github.com/Sandee004/DCraft-UserView",
+      description:
+        "A modern eCommerce app for crafters. Smart cart system, profile dashboard with order history, and secure payment integration.",
+      tech: ["React", "Flask", "PostgreSQL", "Stripe"],
+      gradient: "from-orange-500 to-red-500",
+      icon: "🛍️",
+      liveLink: "#",
+      githubLink: "#",
     },
     {
       title: "KidsFlix",
-      description: (
-        <>
-          A web app built with{" "}
-          <span className="text-green-500">
-            React, Flask, SqlAlchemy and IMDB API
-          </span>{" "}
-          for recommending movies specifically safe for kids. An alternative to
-          Netflix but for kids. Users can browse movies and are only prompted to
-          sign up when they wish to add movies to favorites to revisit later.
-        </>
-      ),
-      image: "/kidsflix.jpg",
-      liveLink: "https://kidsflix-frontend.onrender.com/",
-      githubLink: "https://github.com/Sandee004/KidsFlix-Frontend",
+      description:
+        "A kid-safe streaming web app with parental controls. ReactJS, Flask, SQLAlchemy, IMDB API integration for movie recommendations.",
+      tech: ["React", "Flask", "SQLAlchemy", "IMDB API"],
+      gradient: "from-purple-500 to-pink-500",
+      icon: "🎬",
+      liveLink: "#",
+      githubLink: "#",
     },
     {
       title: "AgroFind",
-      description: (
-        <>
-          <span className="font-semibold">AgroFind</span> is an AI-powered
-          chatbot designed to help identify plants and detect visible diseases
-          or pest infestations. Built with{" "}
-          <span className="text-green-500">Gemini AI</span>, it processes
-          user-uploaded images (JPG, JPEG, PNG) and provides insights based on
-          noticeable plant features.
-        </>
-      ),
-      image: "/agrofind.jpg",
-      liveLink: "https://agrofind.onrender.com/",
-      githubLink: "https://github.com/Sandee004/AgroFind",
+      description:
+        "AI-powered chatbot for plant diseases detection. Processes uploaded images and provides insights on plant health.",
+      tech: ["React", "AI/ML", "Image Processing"],
+      gradient: "from-green-500 to-cyan-500",
+      icon: "🌱",
+      liveLink: "#",
+      githubLink: "#",
     },
     {
-      title: "Altfeed",
-      description: (
-        <>
-          <span className="font-semibold">Altfeed</span> is a web app built for
-          the FMN Prize For Innovation hackathon. The web app is created to help
-          farmers discover non-conventional animal feeds. It offers sustainable
-          and cost-effective alternatives to traditional feeds, empowering
-          farmers to optimize nutrition while reducing costs.
-        </>
-      ),
-      image: "/altfeed.jpg",
-      liveLink: "https://altfeed.onrender.com",
-      githubLink: "https://github.com/Sandee004/Altfeed",
-    },
-    {
-      title: "Voterz",
-      description: (
-        <>
-          <span className="font-semibold">Voterz</span> is an online voting
-          platform for organizing intra-business elections, such as school or
-          company elections. It streamlines the voting process and automates
-          result curation, making elections more efficient and secure.
-        </>
-      ),
-      image: "/voterz.jpg",
-      liveLink: "https://votingapp-frontend.onrender.com/",
-      githubLink: "https://github.com/Sandee004/Voting-App",
-    },
-    {
-      title: "Iyare Motors Web App",
-      description: (
-        <>
-          A web app built with{" "}
-          <span className="text-green-500">React, Flask and SqlAlchemy</span>{" "}
-          for Iyare Motors to handle online ticket purchases and reservations.
-          This helps the company to manage their bookings and customers more
-          efficiently.
-        </>
-      ),
-      image: "/ticket.jpg",
-      liveLink: "https://iyare.onrender.com",
-      githubLink: "https://github.com/Sandee004/Iyare/",
-    },
-    {
-      title: "Robotaxi",
-      description: (
-        <>
-          <span className="font-semibold">Robotaxi</span> is a website built to
-          introduce people to a newly lauched coin - Robotaxi. It contains its
-          Contract Address, approximated value in circulation, steps to getting
-          and trading it as well as link to the etherscan, dexscreener and
-          uniswap of the coin.
-        </>
-      ),
-      image: "/robotaxi.jpg",
-      liveLink: "https://www.robotaxioneth.xyz/",
-      githubLink: "https://github.com/Sandee004/RoboTaxi",
-    },
-    {
-      title: "CreatorMail",
-      description: (
-        <>
-          This is the backend of a hackathon project.{" "}
-          <span className="font-semibold text-green-500">CreatorMail</span> is a software that
-          handles the creation of crypto addresses using the user's email. It
-          also handles and supports the tranfetr of coins from one wallet to
-          another using a person's username. Wallets creator on other platforms
-          can also be imported and used seamlessly on Creatormail.
-        </>
-      ),
-      image: "/creatormail.jpg",
+      title: "NYSC Watch",
+      description:
+        "A resilience tool designed to track unstable websites. It automates the 'waiting game' by monitoring specific endpoints and launching the site upon recovery.",
+      tech: ["Flask", "Automation", "Cron"],
+      gradient: "from-red-600 to-rose-600", // Urgency/Alert color
+      icon: "⚡",
       liveLink: "https://creatormail-0nnc.onrender.com",
-      githubLink: "https://github.com/Sandee004/CreatorMail",
+      githubLink: "https://github.com/Sandee004/SiteWatch",
+    },
+    {
+      title: "Triple A Catering",
+      description:
+        "From offline to Rank #1. A Local SEO prioritization project that channeled traffic directly to the business by dominating local search results.",
+      tech: ["SEO", "Web Architecture", "Analytics"],
+      gradient: "from-yellow-500 to-amber-600", // Gold/Food color
+      icon: "🍽️",
+      liveLink: "https://creatormail-0nnc.onrender.com",
+      githubLink: "https://github.com/Sandee004/SiteWatch",
+    },
+    {
+      title: "SyncNote",
+      description:
+        "A high-performance app exploring modern web architecture. Combines the raw speed of FastAPI with a reactive frontend and custom process orchestration.",
+      tech: ["FastAPI", "React", "AI (Coming Soon)"], // Added the note here
+      gradient: "from-blue-600 to-indigo-600", // Tech/Speed color
+      icon: "📝",
+      liveLink: "https://creatormail-0nnc.onrender.com",
+      githubLink: "https://github.com/Sandee004/SiteWatch",
     },
   ];
 
   return (
     <section
       id="projects"
-      className="py-20 mt-8 bg-background dark:bg-gray-900 shadow-lg"
+      className="px-4 py-20 md:py-32 md:px-8 bg-gradient-to-b from-slate-900 to-slate-950"
     >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center text-text dark:text-white">
-          Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="relative">
-                <img
-                  src={project.image}
-                  alt={`Screenshot of ${project.title} project`}
-                  className="w-full h-48 object-cover bg-gray-200 dark:bg-gray-700"
-                />
-                {hoveredIndex === index && (
-                  <div className="absolute inset-0 bg-green-600 dark:bg-green-500 bg-opacity-90 flex flex-col items-center justify-center transition-opacity duration-300 gap-2">
-                    {/* GitHub Link */}
-                    <a
-                      href={project.githubLink}
-                      className="text-white text-lg font-semibold hover:underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View on GitHub
-                    </a>
-                  </div>
-                )}
-              </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+            Featured Projects
+          </h2>
+          <div className="h-1.5 w-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
+        </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-text dark:text-white">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, idx) => (
+            <div key={idx} className="group relative h-full">
+              {/* Background Glow */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
+              />
+
+              {/* Card Content */}
+              <div className="relative bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700 hover:border-slate-600 transition-all duration-300 h-full flex flex-col">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="text-4xl p-2 bg-slate-800 rounded-lg border border-slate-700/50">
+                    {project.icon}
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold text-white mb-3">
                   {project.title}
                 </h3>
-                <p className="text-text-light dark:text-gray-300">
+
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
                   {project.description}
                 </p>
 
-                <a
-                  href={project.liveLink}
-                  className="mt-4 inline-block text-green-600 dark:text-green-400 font-semibold hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Project
-                </a>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className={`px-3 py-1 text-xs rounded-full border ${
+                        t === "AI (Coming Soon)"
+                          ? "bg-indigo-500/10 text-indigo-300 border-indigo-500/30"
+                          : "bg-slate-700/50 text-cyan-300 border-slate-600"
+                      }`}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-slate-700/50">
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-white font-medium hover:text-cyan-400 transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
+
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors ml-auto"
+                    >
+                      <Github size={16} />
+                      Code
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

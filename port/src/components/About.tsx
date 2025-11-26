@@ -1,58 +1,47 @@
 export function About() {
   return (
-    <section id="about" className="py-20 mt-8 bg-background dark:bg-gray-900">
-      <div className="container dark:bg-background mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-12 md:mb-0">
-            <h1 className="text-5xl font-bold mb-4 text-text dark:text-white animate-slide-in">
-              Sandra Oyarekhua
-            </h1>
-            <h2
-              className="text-3xl text-green-500 dark:text-green-300 mb-4 animate-slide-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              Full Stack Developer
-            </h2>
-            <p
-              className="text-text-light dark:text-gray-300 mb-6 animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              I specialize in building efficient, scalable web and mobile
-              applications—from user-focused interfaces to powerful backend
-              systems. With experience across fullstack development, I work
-              confidently with tools like React, TypeScript, Tailwind, Flask,
-              and PostgreSQL to ship clean, production-ready products.
-            </p>
-            <p
-              className="text-text-light dark:text-gray-300 mb-6 animate-fade-in"
-              style={{ animationDelay: "0.4s" }}
-            >
-              I’ve also built and integrated Web3 backend services using
-              technologies like ethers.js and web3, and I pay close attention to
-              performance, modularity, and real-world usability. Whether it's a
-              PWA, a crypto wallet flow, or an offline-first feed app for
-              farmers, I care about doing the job well—and making sure it
-              actually works where it matters.
-            </p>
+    <>
+      <section
+        id="about"
+        className="px-4 py-20 md:py-32 md:px-8 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-950"
+      >
+        <div className="max-w-8xl lg:max-w-12xl px-6 lg:px-14">
+          <div className="grid md:grid-cols-2 items-center">
+            {/* Left: Text Content */}
+            <div className="py-12 md:py-5">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Full-Stack Developer
+              </h1>
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                I craft beautiful, responsive web experiences with React, modern
+                backends with Python, and scalable solutions. Passionate about
+                clean code, user experience, and solving real-world problems.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all hover:scale-105">
+                  View My Work
+                </button>
+                <button className="px-8 py-3 rounded-lg border-2 border-cyan-400 text-cyan-400 font-semibold hover:bg-cyan-400/10 transition-all">
+                  Download Resume
+                </button>
+              </div>
+            </div>
 
-            <a
-              href="https://drive.google.com/file/d/1ZyG5YxtmQBMoroMIRfiv_gtLUuTrMcLa/view?usp=sharing"
-              className="bg-black dark:bg-white dark:text-black text-white px-6 py-3 rounded-md hover:bg-transparent hover:border-2 hover:border-green-500 dark:hover:border-green-300 hover:text-black dark:hover:text-white transition duration-300 animate-fade-in"
-              style={{ animationDelay: "0.6s" }}
-            >
-              View Resume
-            </a>
-          </div>
-          <div className="md:w-1/2 justify-center mt-8 flex">
-            <img
-              src="/me3.png"
-              alt="A animated pic"
-              className="rounded-lg shadow-xl border-2 border-green-500 animate-float h-[380px] w-[340px] dark:bg-gray-800"
-              style={{ animationDelay: "0.3s" }}
-            />
+            {/* Right: Image Section */}
+            <div className="flex justify-center">
+              <div className="relative w-70 h-80 md:w-80 md:h-92 rounded-2xl overflow-hidden group">
+                <img
+                  src="/me3.png"
+                  alt="Sandra - Full Stack Developer"
+                  style={{ animationDelay: "0.3s" }}
+                  className="w-full h-full object-cover animate-float group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
