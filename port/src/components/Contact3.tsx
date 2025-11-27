@@ -26,26 +26,25 @@ export function Contact() {
           {/* Footer Links: Light gray border divider */}
           <div className="flex flex-wrap items-center justify-center gap-8 pt-12 border-t border-gray-200">
             <a
-              href="#"
-              // Links: Gray by default, Green on hover
+              href="https://github.com/Sandee004"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               GitHub
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/oyarekhua-sandra"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               LinkedIn
             </a>
             <a
-              href="#"
+              href="https://x.com/_SandeeTee_"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               Email
             </a>
             <a
-              href="#"
+              href="https://x.com/_SandeeTee_"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               Twitter
