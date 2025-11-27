@@ -29,19 +29,21 @@ export function Header() {
 
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex space-x-6">
-            {["About", "Skills", "Projects", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-text dark:text-gray-300 hover:text-primary dark:hover:text-green-300 transition duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSmoothScroll(item.toLowerCase());
-                }}
-              >
-                {item}
-              </a>
-            ))}
+            {["About", "Skills", "Experience", "Projects", "Contact"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-text dark:text-gray-300 hover:text-primary dark:hover:text-green-300 transition duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSmoothScroll(item.toLowerCase());
+                  }}
+                >
+                  {item}
+                </a>
+              )
+            )}
           </nav>
           <DarkModeToggle />
         </div>

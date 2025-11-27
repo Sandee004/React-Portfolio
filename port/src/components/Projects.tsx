@@ -150,3 +150,37 @@ export function Projects() {
     </section>
   );
 }
+
+{
+  /*
+      title: "Altfeed",
+      description: (
+        <>
+          Built for a hackathon to help farmers save money. It calculates
+          cheaper,{" "}
+          <span className="text-green-600 font-semibold">
+            non-conventional feed
+          </span>{" "}
+          alternatives (like potato peels or brewers grains) that are just as
+          nutritious but cost way less.
+        </>
+      ),
+      image: "/altfeed.jpg",
+      liveLink: "https://altfeed.onrender.com",
+      githubLink: "https://github.com/Sandee004/Altfeed",
+    },
+    {
+      title: "Voterz",
+      description: (
+        <>
+          An online voting platform for schools and small organizations. It
+          replaces paper ballots with a secure digital system, making counting
+          votes automatic and{" "}
+          <span className="text-green-600 font-semibold">tamper-proof</span>.
+        </>
+      ),
+      image: "/voterz.jpg",
+      liveLink: "https://votingapp-frontend.onrender.com/",
+      githubLink: "https://github.com/Sandee004/Voting-App",
+    */
+}

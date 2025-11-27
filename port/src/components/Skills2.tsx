@@ -3,13 +3,11 @@ import { FaReact, FaGithub } from "react-icons/fa";
 import {
   SiTypescript,
   SiFlask,
-  SiMongodb,
   SiTailwindcss,
   SiPython,
   SiExpo,
   SiPostgresql,
-  SiWeb3Dotjs,
-  SiSwagger,
+  SiFastapi,
 } from "react-icons/si";
 
 export function Skills() {
@@ -31,7 +29,7 @@ export function Skills() {
     },
     {
       name: "React Native",
-      level: 65,
+      level: 72,
       icon: <FaReact className="text-black dark:text-white" />,
     },
     {
@@ -40,9 +38,9 @@ export function Skills() {
       icon: <SiFlask className="text-black dark:text-white" />,
     },
     {
-      name: "MongoDB",
+      name: "MongoDB/PostgreSQL",
       level: 70,
-      icon: <SiMongodb className="text-black dark:text-white" />,
+      icon: <SiPostgresql className="text-black dark:text-white" />,
     },
     {
       name: "Python",
@@ -55,25 +53,15 @@ export function Skills() {
       icon: <SiExpo className="text-black dark:text-white" />,
     },
     {
-      name: "PostgreSQL",
-      level: 68,
-      icon: <SiPostgresql className="text-black dark:text-white" />,
-    },
-    {
-      name: "Swagger",
+      name: "FastAPI",
       level: 75,
-      icon: <SiSwagger className="text-black dark:text-white" />,
+      icon: <SiFastapi className="text-black dark:text-white" />,
     },
 
     {
       name: "GitHub",
       level: 80,
       icon: <FaGithub className="text-black dark:text-white" />,
-    },
-    {
-      name: "Web3",
-      level: 50,
-      icon: <SiWeb3Dotjs className="text-black dark:text-white" />,
     },
   ];
 
@@ -109,12 +97,15 @@ export function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-20 pt-[30px] bg-white dark:bg-background dark:bg-gray-900 shadow-lg"
+      className="py-20 pt-[30px] md:pt-20 bg-gray-50 border-b-2 border-green-600/50 dark:bg-background dark:bg-gray-900 shadow-lg"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center text-text dark:text-white">
-          Skills
-        </h2>
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+            My Technical Arsenal
+          </h2>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skills.map((skill, index) => (
             <div
