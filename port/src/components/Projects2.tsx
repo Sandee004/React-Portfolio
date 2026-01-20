@@ -107,36 +107,6 @@ export function Projects() {
       liveLink: "https://iyare.onrender.com",
       githubLink: "https://github.com/Sandee004/Iyare/",
     },
-    {
-      title: "Robotaxi",
-      description: (
-        <>
-          A landing page for a new crypto project. It shows live stats, the
-          contract address, and links directly to exchanges like Uniswap so
-          users can start trading the{" "}
-          <span className="text-green-600 font-semibold">Robotaxi token</span>{" "}
-          easily.
-        </>
-      ),
-      image: "/robotaxi.jpg",
-      liveLink: "https://www.robotaxioneth.xyz/",
-      githubLink: "https://github.com/Sandee004/RoboTaxi",
-    },
-    {
-      title: "CreatorMail",
-      description: (
-        <>
-          Sending crypto to long wallet addresses is scary and prone to errors.
-          This tool lets you send coins using just an email address instead. It
-          handles the complex{" "}
-          <span className="text-green-600 font-semibold">Web3</span> logic in
-          the background.
-        </>
-      ),
-      image: "/creatormail.jpg",
-      liveLink: "https://creatormail-0nnc.onrender.com",
-      githubLink: "https://github.com/Sandee004/CreatorMail",
-    },
   ];
 
   return (
