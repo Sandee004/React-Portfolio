@@ -84,21 +84,6 @@ export function Projects() {
       githubLink: "https://github.com/Sandee004/KidsFlix-Frontend",
     },
     {
-      title: "AgroFind",
-      description: (
-        <>
-          An app that helps farmers identify plant diseases just by taking a
-          picture. It uses{" "}
-          <span className="text-green-600 font-semibold">Gemini AI</span> to
-          analyze the photo and tell the farmer exactly what is wrong and how to
-          fix it.
-        </>
-      ),
-      image: "/agrofind.jpg",
-      liveLink: "https://agrofind.onrender.com/",
-      githubLink: "https://github.com/Sandee004/AgroFind",
-    },
-    {
       title: "SyncNote",
       description: (
         <>
