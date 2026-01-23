@@ -87,17 +87,35 @@ export function Projects() {
       title: "SyncNote",
       description: (
         <>
-          My take on a modern note-taking app. I wanted to learn how to make
-          things <i>really</i> fast, so I connected a React frontend to a{" "}
-          <span className="text-green-600 font-semibold">FastAPI</span> backend.
-          It syncs instantly and handles data efficiently.
+          My take on a modern note-taking app. Syncnote was built as a way to
+          delve onto the use of{" "}
+          <span className="text-green-600 font-semibold">FastAPI.</span> It
+          features a custom orchestration layer which runs both the frontend and
+          backend on the same port despite being two distinct
+          languages/frameworks
         </>
       ),
       image: "/notes.jpg",
       liveLink: "https://syncnotes.onrender.com",
       githubLink: "https://github.com/Sandee004/Syncnotes",
     },
-
+    {
+      title: "Nomad",
+      description: (
+        <>
+          I built a comprehensive triple-sided marketplace connecting African
+          businesses, creative talent, and shoppers. It features secure{" "}
+          <span className="text-green-600 font-semibold">
+            Paystack Wallet Integration
+          </span>{" "}
+          and a seamless multi-mode architecture, allowing users to hire talent,
+          work gigs, and buy products all from a single dashboard.
+        </>
+      ),
+      image: "/nomad.webp",
+      liveLink: "https://nomad-8j1t.onrender.com",
+      githubLink: "https://github.com/Sandee004/nomad",
+    },
     {
       title: "Iyare Motors",
       description: (
