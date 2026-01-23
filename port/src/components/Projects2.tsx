@@ -36,6 +36,25 @@ export function Projects() {
       githubLink: "https://github.com/Sandee004/DCraft-UserView",
     },
     {
+      title: "SplitStream",
+      description: (
+        <>
+          I built a decentralized payment protocol to{" "}
+          <span className="text-green-600 font-semibold">streamline</span>{" "}
+          revenue sharing. By integrating Web3 settlements with a Python
+          backend, merchants can instantly calculate and settle complex splits
+          with collaborators, replacing manual spreadsheets with a{" "}
+          <span className="text-green-600 font-semibold">
+            transparent, one-click workflow
+          </span>
+          .
+        </>
+      ),
+      image: "/splitstream.avif",
+      liveLink: "https://splitstream.onrender.com",
+      githubLink: "https://github.com/Sandee004/SplitStream",
+    },
+    {
       title: "NYSC Watch",
       description: (
         <>
