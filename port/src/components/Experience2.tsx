@@ -1,7 +1,27 @@
-import { useState } from "react";
-import { Briefcase, Code2, Lock } from "lucide-react";
+import { useState, useRef } from "react";
+import {
+  Briefcase,
+  Code2,
+  Lock,
+  ChevronLeft,
+  ChevronRight,
+  Globe,
+} from "lucide-react";
 
 const experiences = [
+  {
+    id: 4,
+    title: "Freelance Developer",
+    company: "Self-Employed",
+    date: "Oct 2025 – Present",
+    impact:
+      "Architecting scalable full-stack solutions for diverse clients. Currently building a payment-splitting platform and a custom CMS, transitioning from Flask to FastAPI for improved performance.",
+    tech: ["FastAPI", "React", "System Design", "API Integration"],
+    icon: Globe,
+    color: "from-blue-600 to-cyan-600",
+    darkColor: "from-blue-700 to-cyan-700",
+    accentColor: "bg-blue-500",
+  },
   {
     id: 1,
     title: "Contract Frontend Developer",
@@ -24,8 +44,6 @@ const experiences = [
       "Maintained a 90% on-time completion rate for complex backend tasks. Built secure financial transaction systems and validation protocols.",
     tech: ["Backend Development", "Security", "Data Validation"],
     icon: Lock,
-    // NEW GRADIENT: Deep Teal/Cyan (ocean vibes)
-    // It pops against the green but keeps the text readable
     color: "from-teal-600 to-cyan-700",
     darkColor: "from-teal-700 to-cyan-800",
     accentColor: "bg-cyan-500",
@@ -63,7 +81,7 @@ function ExperienceCard({
   return (
     <div
       className={`transform transition-all duration-300 h-full ${
-        isHovered ? "scale-105" : "scale-100"
+        isHovered ? "scale-[1.02]" : "scale-100"
       }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -135,26 +153,72 @@ function ExperienceCard({
 
 export function Experience() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cardWidth = container.firstElementChild?.clientWidth || 350;
+      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <section
       id="experience"
       className="py-20 bg-gray-50 border-b-2 border-green-600/50 dark:bg-gray-900 shadow-lg"
     >
-      <div className="container mx-auto px-4">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
-            Professional Journey
-          </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"></div>
-        </div>
-        {/* ----------------------------- */}
+      <div className="container mx-auto px-4 relative group">
+        <div className="mb-16 flex justify-between items-end">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+              Professional Journey
+            </h2>
+            <div className="h-1.5 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"></div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Navigation Buttons - Hidden on Mobile, Flex on Desktop */}
+          <div className="hidden md:flex gap-4">
+            <button
+              onClick={() => scroll("left")}
+              className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-white" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-700 dark:text-white" />
+            </button>
+          </div>
+        </div>
+
+        {/* Layout Logic:
+           - Mobile: 'flex-col' (Stacks vertically)
+           - Desktop: 'md:flex-row' (Horizontal) + 'md:overflow-x-auto' (Scrolls)
+        */}
+        <div
+          ref={scrollContainerRef}
+          className="flex flex-col md:flex-row md:overflow-x-auto gap-6 md:gap-8 pb-12 md:snap-x md:snap-mandatory hide-scrollbar"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {experiences.map((exp, index) => (
             <div
               key={exp.id}
-              className={index % 2 !== 0 ? "md:translate-y-8" : ""}
+              className={`
+                flex-shrink-0 
+                w-full md:w-[calc(33.333%-1.5rem)] 
+                md:snap-center 
+                ${index % 2 !== 0 ? "md:translate-y-8" : ""}
+              `}
             >
               <ExperienceCard
                 experience={exp}
