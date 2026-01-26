@@ -10,7 +10,7 @@ import {
 
 const experiences = [
   {
-    id: 4,
+    id: 1,
     title: "Freelance Developer",
     company: "Self-Employed",
     date: "Oct 2025 – Present",
@@ -23,7 +23,7 @@ const experiences = [
     accentColor: "bg-blue-500",
   },
   {
-    id: 1,
+    id: 2,
     title: "Contract Frontend Developer",
     company: "Ventify Technologies",
     date: "Jan 2025 – Jun 2025",
@@ -36,7 +36,7 @@ const experiences = [
     accentColor: "bg-green-500",
   },
   {
-    id: 2,
+    id: 3,
     title: "Backend Developer",
     company: "Payverve",
     date: "Oct 2024 – Nov 2024",
@@ -49,7 +49,7 @@ const experiences = [
     accentColor: "bg-cyan-500",
   },
   {
-    id: 3,
+    id: 4,
     title: "Frontend Developer",
     company: "Zteller Technologies",
     date: "Sep 2024 – Oct 2024",

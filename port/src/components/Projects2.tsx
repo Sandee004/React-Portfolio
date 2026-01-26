@@ -6,6 +6,22 @@ export function Projects() {
 
   const projects = [
     {
+      title: "Ignite",
+      description: (
+        <>
+          I hated how long it took to set up a new computer, so I built a tool
+          to automate it. Ignite detects your OS (Mac, Windows, or Linux) and
+          installs your entire tech stack in one click. I engineered a{" "}
+          <span className="text-green-600 font-semibold">Python & Redis</span>{" "}
+          backend to handle concurrent background installations and stream
+          real-time progress to the UI.
+        </>
+      ),
+      image: "/ignite.webp",
+      liveLink: "https://github.com/Sandee004/Ignite", // Since it's a desktop app, link to repo or a demo video
+      githubLink: "https://github.com/Sandee004/Ignite",
+    },
+    {
       title: "Triple A Catering",
       description: (
         <>
