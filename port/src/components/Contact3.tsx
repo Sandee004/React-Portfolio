@@ -27,24 +27,28 @@ export function Contact() {
           <div className="flex flex-wrap items-center justify-center gap-8 pt-12 border-t border-gray-200">
             <a
               href="https://github.com/Sandee004"
+              target="_blank"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/oyarekhua-sandra"
+              target="_blank"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               LinkedIn
             </a>
             <a
               href="https://x.com/_SandeeTee_"
+              target="_blank"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               Email
             </a>
             <a
               href="https://x.com/_SandeeTee_"
+              target="_blank"
               className="text-gray-500 hover:text-green-600 transition-colors font-semibold"
             >
               Twitter

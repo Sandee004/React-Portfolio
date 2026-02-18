@@ -39,7 +39,7 @@ export function About() {
             </p>
 
             <a
-              href="https://drive.google.com/file/d/1ZyG5YxtmQBMoroMIRfiv_gtLUuTrMcLa/view?usp=sharing"
+              href="https://drive.google.com/file/d/18UnG-JrdLw9bdhTh97Aaf4g5ZEyr8xKf/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all hover:scale-105 animate-fade-in"
