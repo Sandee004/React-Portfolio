@@ -21,13 +21,16 @@ export function About() {
               className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
-              I specialize in building efficient, scalable web and mobile
-              applications—from user-focused interfaces to powerful backend
-              systems. With experience across fullstack development, I work
-              confidently with tools like React, TypeScript, Tailwind, Flask,
-              and PostgreSQL to ship clean, production-ready products.
+              I taught myself to build software from scratch, and I've stuck
+              with it because I like seeing something go from an idea to a
+              system real people actually use. I work across the fullstack —
+              React, React Native, Next.js, Flask, FastAPI — comfortable moving
+              between designing a database schema and building the interface on
+              top of it. I care about writing things that hold up in production,
+              not just in a demo, and I'm still learning something new most
+              weeks.
             </p>
-            <p
+            {/* <p
               className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed animate-fade-in"
               style={{ animationDelay: "0.4s" }}
             >
@@ -36,10 +39,10 @@ export function About() {
               performance, modularity, and real-world usability. Whether it's a
               PWA, a crypto wallet flow, or an offline-first feed app for
               farmers, I care about doing the job well.
-            </p>
+            </p> */}
 
             <a
-              href="https://drive.google.com/file/d/18UnG-JrdLw9bdhTh97Aaf4g5ZEyr8xKf/view?usp=sharing"
+              href="https://drive.google.com/file/d/1MA_GK7ZR6Jlk1761X8Fx-Z7F-gTWbW3S/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold hover:shadow-lg hover:shadow-green-500/30 transition-all hover:scale-105 animate-fade-in"

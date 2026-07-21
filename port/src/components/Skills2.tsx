@@ -6,8 +6,8 @@ import {
   SiTailwindcss,
   SiPython,
   SiExpo,
-  SiPostgresql,
   SiFastapi,
+  SiNextdotjs,
 } from "react-icons/si";
 
 export function Skills() {
@@ -29,7 +29,7 @@ export function Skills() {
     },
     {
       name: "React Native",
-      level: 72,
+      level: 82,
       icon: <FaReact className="text-black dark:text-white" />,
     },
     {
@@ -38,9 +38,9 @@ export function Skills() {
       icon: <SiFlask className="text-black dark:text-white" />,
     },
     {
-      name: "MongoDB/PostgreSQL",
+      name: "Nextjs",
       level: 70,
-      icon: <SiPostgresql className="text-black dark:text-white" />,
+      icon: <SiNextdotjs className="text-black dark:text-white" />,
     },
     {
       name: "Python",
@@ -49,7 +49,7 @@ export function Skills() {
     },
     {
       name: "Expo",
-      level: 68,
+      level: 80,
       icon: <SiExpo className="text-black dark:text-white" />,
     },
     {
@@ -79,7 +79,7 @@ export function Skills() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (currentSection) {
