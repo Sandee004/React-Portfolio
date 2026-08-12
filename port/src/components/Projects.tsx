@@ -1,186 +1,192 @@
-import { ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import {
+  ExternalLink,
+  Github,
+  Terminal,
+  ShieldAlert,
+  Cpu,
+  ShoppingBag,
+  Radio,
+  Sparkles,
+} from "lucide-react";
 
 export function Projects() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const projects = [
     {
+      title: "Pick App",
+      category: "Fullstack & Mobile System",
+      description:
+        "End-to-end ride and delivery ecosystem built for high concurrency. Features Paystack payout pipelines with idempotency protection, fare calculations, and multi-mode mobile tracking.",
+      tech: ["React Native (Expo)", "Supabase", "Paystack", "PostgreSQL"],
+      image: "/nomad.webp", // Update with your actual asset path
+      liveLink: "https://github.com/Sandee004/Pick",
+      githubLink: "https://github.com/Sandee004/Pick",
+      icon: Radio,
+    },
+    {
+      title: "SiteWatch",
+      category: "System Monitoring & Resilience",
+      description:
+        "Automated availability monitor tracking 50+ URLs concurrently. Features intelligent polling, auto-browser access triggers on recovery, and sub-second SQLite history queries.",
+      tech: ["React", "Flask", "SQLite", "TailwindCSS"],
+      image: "/watching.jpg",
+      liveLink: "https://github.com/Sandee004/SiteWatch",
+      githubLink: "https://github.com/Sandee004/SiteWatch",
+      icon: Cpu,
+    },
+    {
+      title: "Scholarship Aide",
+      category: "AI & Context Isolation",
+      description:
+        "AI-assisted application assistant featuring per-section document reference isolation, zero cross-thread context contamination, and multi-model failover switching via Censori.",
+      tech: ["Next.js", "Python", "Censori AI", "TailwindCSS"],
+      image: "/notes.jpg",
+      liveLink: "https://github.com/Sandee004",
+      githubLink: "https://github.com/Sandee004",
+      icon: Sparkles,
+    },
+    {
+      title: "Kill-Switch",
+      category: "Infrastructure & Resilience Testing",
+      description:
+        "Configurable fault-injection proxy layered between frontend and backend systems. Intercepts and simulates partial outages (~60% request failures) to validate offline-handling resilience.",
+      tech: ["Python", "Networking", "Proxy Protocols"],
+      image: "/ignite.webp",
+      liveLink: "https://github.com/Sandee004/Kill-Switch",
+      githubLink: "https://github.com/Sandee004/Kill-Switch",
+      icon: ShieldAlert,
+    },
+    {
       title: "DCraftHouse",
+      category: "E-Commerce & Mobile Admin",
       description:
-        "A modern eCommerce app for crafters. Smart cart system, profile dashboard with order history, and secure payment integration.",
-      tech: ["React", "Flask", "PostgreSQL", "Stripe"],
-      gradient: "from-orange-500 to-red-500",
-      icon: "🛍️",
-      liveLink: "#",
-      githubLink: "#",
+        "Full digital footprint comprising a guest checkout web storefront, FastAPI admin panel with Cloudinary asset pipeline, companion mobile app, and instant optimistic cart updates.",
+      tech: ["FastAPI", "React Native", "Cloudinary", "Paystack"],
+      image: "/dcrafthouse.jpg",
+      liveLink: "https://github.com/Sandee004/DCraft-UserView",
+      githubLink: "https://github.com/Sandee004/DCraft-UserView",
+      icon: ShoppingBag,
     },
     {
-      title: "KidsFlix",
+      title: "Ignite",
+      category: "Developer Tooling & Automation",
       description:
-        "A kid-safe streaming web app with parental controls. ReactJS, Flask, SQLAlchemy, IMDB API integration for movie recommendations.",
-      tech: ["React", "Flask", "SQLAlchemy", "IMDB API"],
-      gradient: "from-purple-500 to-pink-500",
-      icon: "🎬",
-      liveLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "AgroFind",
-      description:
-        "AI-powered chatbot for plant diseases detection. Processes uploaded images and provides insights on plant health.",
-      tech: ["React", "AI/ML", "Image Processing"],
-      gradient: "from-green-500 to-cyan-500",
-      icon: "🌱",
-      liveLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "NYSC Watch",
-      description:
-        "A resilience tool designed to track unstable websites. It automates the 'waiting game' by monitoring specific endpoints and launching the site upon recovery.",
-      tech: ["Flask", "Automation", "Cron"],
-      gradient: "from-red-600 to-rose-600", // Urgency/Alert color
-      icon: "⚡",
-      liveLink: "https://creatormail-0nnc.onrender.com",
-      githubLink: "https://github.com/Sandee004/SiteWatch",
-    },
-    {
-      title: "Triple A Catering",
-      description:
-        "From offline to Rank #1. A Local SEO prioritization project that channeled traffic directly to the business by dominating local search results.",
-      tech: ["SEO", "Web Architecture", "Analytics"],
-      gradient: "from-yellow-500 to-amber-600", // Gold/Food color
-      icon: "🍽️",
-      liveLink: "https://creatormail-0nnc.onrender.com",
-      githubLink: "https://github.com/Sandee004/SiteWatch",
-    },
-    {
-      title: "SyncNote",
-      description:
-        "A high-performance app exploring modern web architecture. Combines the raw speed of FastAPI with a reactive frontend and custom process orchestration.",
-      tech: ["FastAPI", "React", "AI (Coming Soon)"], // Added the note here
-      gradient: "from-blue-600 to-indigo-600", // Tech/Speed color
-      icon: "📝",
-      liveLink: "https://creatormail-0nnc.onrender.com",
-      githubLink: "https://github.com/Sandee004/SiteWatch",
+        "Cross-platform CLI automation tool detecting OS environments to install development stacks programmatically, slashing workstation onboarding time from 4 hours to under 10 minutes.",
+      tech: ["Python", "CLI Tooling", "Redis", "Shell Scripting"],
+      image: "/ignite.webp",
+      liveLink: "https://github.com/Sandee004/Ignite",
+      githubLink: "https://github.com/Sandee004/Ignite",
+      icon: Terminal,
     },
   ];
 
   return (
     <section
       id="projects"
-      className="px-4 py-20 md:py-32 md:px-8 bg-gradient-to-b from-slate-900 to-slate-950"
+      className="py-20 bg-gray-50/50 dark:bg-gray-900 border-b border-gray-200/80 dark:border-gray-800 shadow-sm"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
             Featured Projects
           </h2>
-          <div className="h-1.5 w-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
-            <div key={idx} className="group relative h-full">
-              {/* Background Glow */}
+        {/* 3x2 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => {
+            const Icon = project.icon;
+            return (
               <div
-                className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
-              />
+                key={index}
+                className="group flex flex-col justify-between
+                  bg-white/70 dark:bg-gray-800/40 
+                  backdrop-blur-md 
+                  border border-gray-200/80 dark:border-gray-700/50 
+                  rounded-2xl overflow-hidden 
+                  transition-all duration-300 
+                  hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-950/5 dark:hover:shadow-emerald-500/5 hover:-translate-y-1"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <div>
+                  {/* Image Preview with Glass Overlay */}
+                  <div className="relative overflow-hidden h-44 shrink-0 bg-gray-100 dark:bg-gray-900">
+                    <img
+                      src={project.image}
+                      alt={`Screenshot of ${project.title}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
 
-              {/* Card Content */}
-              <div className="relative bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 border border-slate-700 hover:border-slate-600 transition-all duration-300 h-full flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="text-4xl p-2 bg-slate-800 rounded-lg border border-slate-700/50">
-                    {project.icon}
+                    <div
+                      className={`absolute inset-0 bg-gray-950/70 backdrop-blur-xs flex items-center justify-center gap-3 transition-opacity duration-300 ${
+                        hoveredIndex === index
+                          ? "opacity-100"
+                          : "opacity-0 pointer-events-none"
+                      }`}
+                    >
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
+                      >
+                        <Github size={15} />
+                        Source Code
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                        {project.category}
+                      </span>
+                      <Icon className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+                    </div>
+
+                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                      {project.description}
+                    </p>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {project.title}
-                </h3>
+                {/* Footer Badges & Action */}
+                <div className="p-6 pt-0 mt-auto">
+                  <div className="flex flex-wrap gap-1.5 mb-5 border-t border-gray-200/60 dark:border-gray-700/40 pt-4">
+                    {project.tech.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-gray-100 dark:bg-gray-900/80 text-gray-700 dark:text-gray-300 border border-gray-200/80 dark:border-gray-700/50"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className={`px-3 py-1 text-xs rounded-full border ${
-                        t === "AI (Coming Soon)"
-                          ? "bg-indigo-500/10 text-indigo-300 border-indigo-500/30"
-                          : "bg-slate-700/50 text-cyan-300 border-slate-600"
-                      }`}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-slate-700/50">
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-white font-medium hover:text-cyan-400 transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </a>
-                  )}
-
-                  {project.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors ml-auto"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
-                  )}
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-white hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                  >
+                    View Project <ExternalLink size={14} />
+                  </a>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
   );
-}
-
-{
-  /*
-      title: "Altfeed",
-      description: (
-        <>
-          Built for a hackathon to help farmers save money. It calculates
-          cheaper,{" "}
-          <span className="text-green-600 font-semibold">
-            non-conventional feed
-          </span>{" "}
-          alternatives (like potato peels or brewers grains) that are just as
-          nutritious but cost way less.
-        </>
-      ),
-      image: "/altfeed.jpg",
-      liveLink: "https://altfeed.onrender.com",
-      githubLink: "https://github.com/Sandee004/Altfeed",
-    },
-    {
-      title: "Voterz",
-      description: (
-        <>
-          An online voting platform for schools and small organizations. It
-          replaces paper ballots with a secure digital system, making counting
-          votes automatic and{" "}
-          <span className="text-green-600 font-semibold">tamper-proof</span>.
-        </>
-      ),
-      image: "/voterz.jpg",
-      liveLink: "https://votingapp-frontend.onrender.com/",
-      githubLink: "https://github.com/Sandee004/Voting-App",
-    */
 }
