@@ -8,6 +8,7 @@ import {
   ShoppingBag,
   Radio,
   Sparkles,
+  Smartphone,
 } from "lucide-react";
 
 export function Projects() {
@@ -15,15 +16,35 @@ export function Projects() {
 
   const projects = [
     {
-      title: "Pick App",
-      category: "Fullstack & Mobile System",
+      title: "Pick",
+      category: "Ride-hailing & Delivery Platform",
       description:
         "End-to-end ride and delivery ecosystem built for high concurrency. Features Paystack payout pipelines with idempotency protection, fare calculations, and multi-mode mobile tracking.",
       tech: ["React Native (Expo)", "Supabase", "Paystack", "PostgreSQL"],
-      image: "/nomad.webp", // Update with your actual asset path
-      liveLink: "https://github.com/Sandee004/Pick",
-      githubLink: "https://github.com/Sandee004/Pick",
+      image: "/pick.jpeg",
+      githubLink: "https://pick.ng/",
       icon: Radio,
+      storeLinks: [
+        {
+          label: "Play Store",
+          url: "https://play.google.com/store/apps/details?id=com.picklimited.app",
+        },
+        {
+          label: "App Store",
+          url: "https://apps.apple.com/app/pick-request-a-delivery/id6803471737",
+        },
+      ],
+    },
+    {
+      title: "DCraftHouse",
+      category: "E-Commerce & Mobile Admin",
+      description:
+        "Full digital footprint comprising a guest checkout web storefront, FastAPI admin panel with Cloudinary asset pipeline, companion mobile app, and instant optimistic cart updates.",
+      tech: ["FastAPI", "React Native", "Cloudinary", "Paystack"],
+      image: "/dcrafthouse.jpg",
+      liveLink: "https://github.com/Sandee004/DCraft-UserView",
+      githubLink: "https://github.com/Sandee004/DCraft-UserView",
+      icon: ShoppingBag,
     },
     {
       title: "SiteWatch",
@@ -53,29 +74,19 @@ export function Projects() {
       description:
         "Configurable fault-injection proxy layered between frontend and backend systems. Intercepts and simulates partial outages (~60% request failures) to validate offline-handling resilience.",
       tech: ["Python", "Networking", "Proxy Protocols"],
-      image: "/ignite.webp",
+      image: "/kill-switch.jpg",
       liveLink: "https://github.com/Sandee004/Kill-Switch",
       githubLink: "https://github.com/Sandee004/Kill-Switch",
       icon: ShieldAlert,
     },
-    {
-      title: "DCraftHouse",
-      category: "E-Commerce & Mobile Admin",
-      description:
-        "Full digital footprint comprising a guest checkout web storefront, FastAPI admin panel with Cloudinary asset pipeline, companion mobile app, and instant optimistic cart updates.",
-      tech: ["FastAPI", "React Native", "Cloudinary", "Paystack"],
-      image: "/dcrafthouse.jpg",
-      liveLink: "https://github.com/Sandee004/DCraft-UserView",
-      githubLink: "https://github.com/Sandee004/DCraft-UserView",
-      icon: ShoppingBag,
-    },
+
     {
       title: "Ignite",
       category: "Developer Tooling & Automation",
       description:
         "Cross-platform CLI automation tool detecting OS environments to install development stacks programmatically, slashing workstation onboarding time from 4 hours to under 10 minutes.",
       tech: ["Python", "CLI Tooling", "Redis", "Shell Scripting"],
-      image: "/ignite.webp",
+      image: "/ignite.jpg",
       liveLink: "https://github.com/Sandee004/Ignite",
       githubLink: "https://github.com/Sandee004/Ignite",
       icon: Terminal,
@@ -173,14 +184,33 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-white hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
-                  >
-                    View Project <ExternalLink size={14} />
-                  </a>
+                  {/* Dynamic Action Links */}
+                  <div className="flex items-center gap-4">
+                    {project.storeLinks ? (
+                      project.storeLinks.map((store, sIdx) => (
+                        <a
+                          key={sIdx}
+                          href={store.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-white hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                        >
+                          <Smartphone size={13} className="text-emerald-500" />
+                          {store.label}
+                          <ExternalLink size={13} />
+                        </a>
+                      ))
+                    ) : project.liveLink ? (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-900 dark:text-white hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                      >
+                        View Project <ExternalLink size={14} />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             );

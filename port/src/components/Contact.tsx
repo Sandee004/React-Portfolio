@@ -42,7 +42,7 @@ export function Contact() {
     },
     {
       name: "Twitter / X",
-      href: "https://x.com/_SandeeTee_",
+      href: "https://x.com/sandee__tee",
       icon: Twitter,
     },
   ];
