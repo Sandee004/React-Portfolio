@@ -7,8 +7,9 @@ import {
   Cpu,
   ShoppingBag,
   Radio,
-  Sparkles,
+  //Sparkles,
   Smartphone,
+  Layers,
 } from "lucide-react";
 
 export function Projects() {
@@ -36,6 +37,25 @@ export function Projects() {
       ],
     },
     {
+      title: "EventDek",
+      category: "Event Discovery & Ingestion",
+      description:
+        "Gesture-driven discovery platform delivering sub-15ms regional event feeds. Features an immutable passbook snapshot architecture, automated pg_cron database pruning, and headless scraper pipelines.",
+      tech: [
+        "React",
+        "FastAPI",
+        "PostgreSQL",
+        "Framer Motion",
+        "Playwright",
+        "Grafana",
+        "Prometheus",
+      ],
+      image: "/ticket.png",
+      liveLink: "https://eventdek.onrender.com/",
+      githubLink: "https://github.com/Sandee004/Eventdek",
+      icon: Layers,
+    },
+    {
       title: "DCraftHouse",
       category: "E-Commerce & Mobile Admin",
       description:
@@ -57,17 +77,17 @@ export function Projects() {
       githubLink: "https://github.com/Sandee004/SiteWatch",
       icon: Cpu,
     },
-    {
-      title: "Scholarship Aide",
-      category: "AI & Context Isolation",
-      description:
-        "AI-assisted application assistant featuring per-section document reference isolation, zero cross-thread context contamination, and multi-model failover switching via Censori.",
-      tech: ["Next.js", "Python", "Censori AI", "TailwindCSS"],
-      image: "/notes.jpg",
-      liveLink: "https://github.com/Sandee004",
-      githubLink: "https://github.com/Sandee004",
-      icon: Sparkles,
-    },
+    // {
+    //   title: "Scholarship Aide",
+    //   category: "AI & Context Isolation",
+    //   description:
+    //     "AI-assisted application assistant featuring per-section document reference isolation, zero cross-thread context contamination, and multi-model failover switching via Censori.",
+    //   tech: ["Next.js", "Python", "Censori AI", "TailwindCSS"],
+    //   image: "/notes.jpg",
+    //   liveLink: "https://github.com/Sandee004",
+    //   githubLink: "https://github.com/Sandee004",
+    //   icon: Sparkles,
+    // },
     {
       title: "Kill-Switch",
       category: "Infrastructure & Resilience Testing",
@@ -79,7 +99,6 @@ export function Projects() {
       githubLink: "https://github.com/Sandee004/Kill-Switch",
       icon: ShieldAlert,
     },
-
     {
       title: "Ignite",
       category: "Developer Tooling & Automation",
@@ -107,7 +126,7 @@ export function Projects() {
           <div className="h-1.5 w-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full"></div>
         </div>
 
-        {/* 3x2 Grid */}
+        {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
             const Icon = project.icon;
