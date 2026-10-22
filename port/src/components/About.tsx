@@ -25,32 +25,29 @@ export function About() {
             {/* Status Indicator Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-6 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Available for High-Impact Roles
+              Available for Software Engineering Roles
             </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 text-gray-900 dark:text-white tracking-tight">
               Sandra Oyarekhua
             </h1>
-
             <h2 className="text-2xl sm:text-3xl text-emerald-600 dark:text-emerald-400 mb-6 font-semibold">
               Fullstack & Mobile Engineer
             </h2>
-
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-base sm:text-lg leading-relaxed">
-              I architect products from database design to production deployment
-              and real-time observability. Experienced in orchestrating
-              microservices, engineering high-concurrency APIs, and delivering
-              cross-platform mobile apps with React Native, Next.js, FastAPI,
-              Docker, and PostgreSQL.
+              I like building software that holds up once real people start
+              depending on it. Database to deployment, nothing handed off
+              halfway. Self-taught, and still adding to the stack: websites
+              first, then mobile apps, now infrastructure and cloud. Right now
+              that means moving between different stacks without much friction —
+              the syntax changes, the instinct for structure doesn’t.
             </p>
 
-            <p className="text-gray-600 dark:text-gray-300 mb-8 text-base sm:text-lg leading-relaxed">
+            {/* <p className="text-gray-600 dark:text-gray-300 mb-8 text-base sm:text-lg leading-relaxed">
               Whether provisioning virtual network infrastructures, implementing
               idempotency-protected payment streams, or optimizing offline-first
               performance, I focus on building resilient systems that hold up
               reliably in production.
-            </p>
-
+            </p> */}
             {/* Quick Feature Badges */}
             <div className="flex flex-wrap gap-2.5 mb-8">
               {highlightBadges.map((badge, idx) => {
@@ -66,7 +63,6 @@ export function About() {
                 );
               })}
             </div>
-
             {/* Resume Button */}
             <a
               href="https://drive.google.com/file/d/1MA_GK7ZR6Jlk1761X8Fx-Z7F-gTWbW3S/view?usp=sharing"

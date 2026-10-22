@@ -56,7 +56,7 @@ export function Contact() {
         {/* Header */}
         <div className="mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Build Something High-Impact
+            Let's Build Something Cool
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg max-w-xl mx-auto">
             Available for full-time roles, contract engineering, and

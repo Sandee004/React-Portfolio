@@ -1,30 +1,30 @@
 import { useState } from "react";
-import {
-  ExternalLink,
-  Github,
-  Terminal,
-  ShieldAlert,
-  Cpu,
-  ShoppingBag,
-  Radio,
-  //Sparkles,
-  Smartphone,
-  Layers,
-} from "lucide-react";
+import { ExternalLink, Github, Info, Smartphone } from "lucide-react";
+import ProjectModal, { type Project } from "./ProjectModal";
+import type { MouseEvent as ReactMouseEvent } from "react";
 
 export function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
-  const projects = [
+  const handleCardClick = (
+    event: ReactMouseEvent<HTMLDivElement>,
+    project: Project,
+  ) => {
+    if ((event.target as HTMLElement).closest("a, button")) return;
+    if (window.getSelection()?.toString()) return;
+    setActiveProject(project);
+  };
+
+  const projects: Project[] = [
     {
       title: "Pick",
-      category: "Ride-hailing & Delivery Platform",
+      category: "Delivery Platform",
       description:
-        "End-to-end ride and delivery ecosystem built for high concurrency. Features Paystack payout pipelines with idempotency protection, fare calculations, and multi-mode mobile tracking.",
+        "A delivery app live on the Play Store and App Store. Customers see the price upfront, track their rider on a map, and pay by card, transfer or cash. Rider payouts are automated, with a safeguard against paying twice.",
       tech: ["React Native (Expo)", "Supabase", "Paystack", "PostgreSQL"],
       image: "/pick.jpeg",
       githubLink: "https://pick.ng/",
-      icon: Radio,
       storeLinks: [
         {
           label: "Play Store",
@@ -35,12 +35,77 @@ export function Projects() {
           url: "https://apps.apple.com/app/pick-request-a-delivery/id6803471737",
         },
       ],
+      caseStudy: {
+        overview:
+          "Pick is a delivery app for Nigeria, live on the Play Store and the App Store. A customer requests a delivery, sees the price up front, pays by card, bank transfer or cash, and follows the rider on a live map. Riders are identity-checked before they can take jobs. I built it from scratch.",
+        why: "Sending a package across town usually meant haggling over price, repeated phone calls, and handing goods to someone you could not vouch for. Pick puts the price, the rider and the progress in front of everyone involved.",
+        flowTitle: "What happens when someone sends a package",
+        flow: [
+          {
+            title: "Request and price",
+            detail:
+              "The customer enters pickup and drop-off and sees the full price before confirming anything.",
+          },
+          {
+            title: "Pay",
+            detail:
+              "Card and bank transfer payments run through Paystack. Cash on delivery skips online payment and settles with the rider.",
+          },
+          {
+            title: "Match and track",
+            detail:
+              "A verified rider accepts the job. The customer follows the rider live on a map and can share a tracking link with the recipient.",
+          },
+          {
+            title: "Prove delivery",
+            detail:
+              "The rider completes the drop with photo proof, and the recipient confirms with a delivery PIN.",
+          },
+          {
+            title: "Pay out the rider",
+            detail:
+              "Rider payouts are automated and confirmed through Paystack webhooks.",
+          },
+        ],
+        decisions: [
+          {
+            title: "One guard against paying twice",
+            detail:
+              "Webhooks and retries can deliver the same event more than once. Before a transfer is attempted, the payout is marked as processing, so a repeated event finds it already taken and stops. A rider is paid once per job.",
+          },
+          {
+            title: "One handler for both payment events",
+            detail:
+              "Incoming charges and outgoing transfers arrive as different Paystack events. A single webhook handler processes both, so money in and money out are reconciled in one place.",
+          },
+          {
+            title: "Recovering interrupted payments",
+            detail:
+              "If the app is closed or killed in the middle of a bank transfer, the pending transaction is saved on the device. On the next launch a recovery prompt lets the customer pick up where they left off instead of starting over.",
+          },
+          {
+            title: "Working within the provider’s network rules",
+            detail:
+              "Some Paystack calls are only accepted from a whitelisted IP address. A small proxy on a fixed-IP host forwards those requests. I also moved the project from Flutterwave to Paystack along the way.",
+          },
+          {
+            title: "One entry point for sign-up",
+            detail:
+              "Sign-up and OTP verification run through a single Supabase Edge Function, so account creation has one place to validate input instead of several. Riders then go through identity checks before they can accept jobs.",
+          },
+          {
+            title: "An admin panel to run the operation",
+            detail:
+              "A React and TypeScript panel on Supabase lets the team manage accounts. Creating a rider account validates the input, checks for duplicates and writes the related records in three transactional steps.",
+          },
+        ],
+      },
     },
     {
       title: "EventDek",
-      category: "Event Discovery & Ingestion",
+      category: "Event Discovery Webapp",
       description:
-        "Gesture-driven discovery platform delivering sub-15ms regional event feeds. Features an immutable passbook snapshot architecture, automated pg_cron database pruning, and headless scraper pipelines.",
+        "Find events across Nigerian cities by swiping through them like cards. Save one and its pass, QR code included, stays on your phone and works even with no signal at the venue. New events are collected automatically every six hours.",
       tech: [
         "React",
         "FastAPI",
@@ -53,62 +118,232 @@ export function Projects() {
       image: "/ticket.png",
       liveLink: "https://eventdek.onrender.com/",
       githubLink: "https://github.com/Sandee004/Eventdek",
-      icon: Layers,
+      caseStudy: {
+        overview:
+          "EventDek helps people find events in Nigerian cities by swiping through them like a deck of cards. Swipe right and the event becomes a pass in your wallet, with its QR code, venue and calendar file saved on your phone. One tap then takes you to the organizer’s own page to register.",
+        why: "Events in Lagos, Abuja and other states are scattered across Lu.ma, Tix.africa, Eventbrite and social media threads. EventDek pulls them into one feed you can browse state by state.",
+        flowTitle: "What happens when you swipe right",
+        flow: [
+          {
+            title: "The swipe is recorded",
+            detail:
+              "The app sends the swipe to the API and the card flies off screen straight away. The endpoint is built to answer in under 15 milliseconds.",
+          },
+          {
+            title: "The event is frozen into a pass",
+            detail:
+              "The API saves the swipe and copies the event’s details into a snapshot attached to your pass.",
+          },
+          {
+            title: "The pass is cached on your device",
+            detail:
+              "The QR code, venue details and calendar file are stored locally, so they still work with no signal inside an event hall.",
+          },
+          {
+            title: "You register with the organizer",
+            detail:
+              "The app opens the official registration page on Eventbrite, Lu.ma or Tix. Payment and checkout stay with them.",
+          },
+        ],
+        diagram: [
+          "  React PWA (Vite + Workbox)",
+          "  cached passes, offline QR codes, local .ics files",
+          "              │",
+          "              │  REST + JWT",
+          "              ▼",
+          "  FastAPI (async SQLAlchemy)",
+          "    ├─ GET  /events/deck     exclusion query over the shared pool",
+          "    ├─ POST /events/swipe    swipe row + immutable snapshot",
+          "    └─ APScheduler, every 6h  Playwright + BeautifulSoup ingest",
+          "              │",
+          "              ▼",
+          "  PostgreSQL on Supabase",
+          "    └─ pg_cron, 03:00 UTC    purge expired listings",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "One shared pool, a personal deck for everyone",
+            detail:
+              "Events are stored once per state. Each person’s deck is built on request by excluding the events they have already swiped on, so there is no stored deck per user. A composite unique index stops rapid double taps from creating duplicate swipe rows.",
+          },
+          {
+            title: "Passes that cannot break",
+            detail:
+              "Saving an event copies its display details into the user’s own record. If an organizer edits or deletes the listing, or the nightly cleanup removes it, the pass in the wallet is untouched.",
+          },
+          {
+            title: "Discovery without scraping checkout",
+            detail:
+              "Checkout pages sit behind bot protection such as Cloudflare Turnstile and captchas. Rather than fight that with browser bots, EventDek sends people to the official page and keeps its own job to discovery.",
+          },
+          {
+            title: "Offline first by design",
+            detail:
+              "The wallet reads from device storage first and revalidates in the background when online. Offline, it shows a notice with the last sync time. QR codes render in the browser and calendar files are generated locally, so nothing needs the network.",
+          },
+          {
+            title: "Housekeeping that runs itself",
+            detail:
+              "A scheduled job inside the database purges expired listings at 03:00 UTC every night, without touching saved passes. A background worker ingests new listings every six hours, maps venues to states and skips duplicates.",
+          },
+          {
+            title: "One container, no CORS",
+            detail:
+              "The React app and the API ship as a single service on Render. FastAPI serves the API and the built frontend, so the browser never makes a cross-origin request.",
+          },
+        ],
+      },
     },
     {
       title: "DCraftHouse",
-      category: "E-Commerce & Mobile Admin",
+      category: "Online shop",
       description:
-        "Full digital footprint comprising a guest checkout web storefront, FastAPI admin panel with Cloudinary asset pipeline, companion mobile app, and instant optimistic cart updates.",
+        "An online shop with a website, a mobile app and an admin panel for managing products. Shoppers can browse and fill a cart without an account, and only sign in at checkout.",
       tech: ["FastAPI", "React Native", "Cloudinary", "Paystack"],
       image: "/dcrafthouse.jpg",
       liveLink: "https://github.com/Sandee004/DCraft-UserView",
       githubLink: "https://github.com/Sandee004/DCraft-UserView",
-      icon: ShoppingBag,
-    },
-    {
-      title: "SiteWatch",
-      category: "System Monitoring & Resilience",
-      description:
-        "Automated availability monitor tracking 50+ URLs concurrently. Features intelligent polling, auto-browser access triggers on recovery, and sub-second SQLite history queries.",
-      tech: ["React", "Flask", "SQLite", "TailwindCSS"],
-      image: "/watching.jpg",
-      liveLink: "https://github.com/Sandee004/SiteWatch",
-      githubLink: "https://github.com/Sandee004/SiteWatch",
-      icon: Cpu,
-    },
-    // {
-    //   title: "Scholarship Aide",
-    //   category: "AI & Context Isolation",
-    //   description:
-    //     "AI-assisted application assistant featuring per-section document reference isolation, zero cross-thread context contamination, and multi-model failover switching via Censori.",
-    //   tech: ["Next.js", "Python", "Censori AI", "TailwindCSS"],
-    //   image: "/notes.jpg",
-    //   liveLink: "https://github.com/Sandee004",
-    //   githubLink: "https://github.com/Sandee004",
-    //   icon: Sparkles,
-    // },
-    {
-      title: "Kill-Switch",
-      category: "Infrastructure & Resilience Testing",
-      description:
-        "Configurable fault-injection proxy layered between frontend and backend systems. Intercepts and simulates partial outages (~60% request failures) to validate offline-handling resilience.",
-      tech: ["Python", "Networking", "Proxy Protocols"],
-      image: "/kill-switch.jpg",
-      liveLink: "https://github.com/Sandee004/Kill-Switch",
-      githubLink: "https://github.com/Sandee004/Kill-Switch",
-      icon: ShieldAlert,
+      caseStudy: {
+        overview:
+          "DCraftHouse is a shopping app where people can browse the whole catalogue before they ever create an account. Sign-in only appears when they are ready to buy. It comes with a web storefront, a companion mobile app and an admin panel for managing the shop.",
+        why: "The goal was minimal signup friction: keep the account step for the moment someone is ready to buy, not the moment they arrive.",
+        flowTitle: "From browsing to a paid order",
+        flow: [
+          {
+            title: "Browse freely",
+            detail:
+              "Product images, descriptions and prices are open to everyone, with no account needed.",
+          },
+          {
+            title: "Build a cart",
+            detail:
+              "Add items, change quantities or remove them. The cart responds instantly.",
+          },
+          {
+            title: "Check availability",
+            detail:
+              "Checkout only goes ahead if each product is still available.",
+          },
+          {
+            title: "Sign in at the last step",
+            detail:
+              "New and returning customers sign up or sign in only once they choose to check out.",
+          },
+          {
+            title: "Pay with Paystack",
+            detail:
+              "Payment runs through Paystack, so card details never touch the app’s own servers.",
+          },
+          {
+            title: "Come back to it",
+            detail:
+              "A profile screen keeps personal details and order history in one place.",
+          },
+        ],
+        decisions: [
+          {
+            title: "The account wall sits at the end",
+            detail:
+              "Nothing before checkout requires an account. Guests can look around, fill a cart and only meet sign-in at the moment it is actually needed.",
+          },
+          {
+            title: "Availability is verified at checkout",
+            detail:
+              "A product can sell out while someone is still browsing. Checking at checkout means a customer does not pay for something that is gone.",
+          },
+          {
+            title: "Optimistic cart updates",
+            detail:
+              "The cart updates on screen immediately and reconciles with the server afterwards, so adding and removing items never feels like waiting.",
+          },
+          {
+            title: "Payments handled by Paystack",
+            detail:
+              "Using a hosted payment gateway keeps sensitive card handling out of the app and gives customers a payment flow they already recognise.",
+          },
+          {
+            title: "A separate admin panel",
+            detail:
+              "The shop owner manages the catalogue from an admin panel, with product images handled through Cloudinary.",
+          },
+        ],
+      },
     },
     {
       title: "Ignite",
-      category: "Developer Tooling & Automation",
+      category: "Developer tool",
       description:
-        "Cross-platform CLI automation tool detecting OS environments to install development stacks programmatically, slashing workstation onboarding time from 4 hours to under 10 minutes.",
+        "Sets up a new computer for coding with one click. Pick your tools and watch them install live on Mac, Windows or Linux, instead of spending hours downloading each one by hand.",
       tech: ["Python", "CLI Tooling", "Redis", "Shell Scripting"],
       image: "/ignite.jpg",
       liveLink: "https://github.com/Sandee004/Ignite",
       githubLink: "https://github.com/Sandee004/Ignite",
-      icon: Terminal,
+      caseStudy: {
+        overview:
+          "Ignite sets up a new development machine. You pick your tools, press one button and watch each install happen live, instead of visiting twenty websites. It detects the operating system and uses Homebrew on macOS, Winget on Windows or APT on Linux.",
+        why: "I built it after getting a new MacBook and losing hours to downloads, drag-and-drop installers and Homebrew errors I did not yet understand. The tools I had seen were terminal-only scripts, so I wanted something friendly for beginners that also showed exactly what was happening.",
+        flowTitle: "From click to installed",
+        flow: [
+          {
+            title: "Choose apps",
+            detail: "Pick from the grid or type any app name, such as Blender.",
+          },
+          {
+            title: "Send the list",
+            detail:
+              "The frontend posts the selection to the /install endpoint.",
+          },
+          {
+            title: "Create a job",
+            detail:
+              "The backend creates a job ID and saves its initial state in Redis.",
+          },
+          {
+            title: "Install in the background",
+            detail:
+              "A background thread detects the OS and runs the right commands, such as brew install or winget install.",
+          },
+          {
+            title: "Report progress",
+            detail: "The frontend polls the /progress endpoint every second.",
+          },
+          {
+            title: "Show the result",
+            detail:
+              "Each app’s icon turns green when it succeeds, or red with the reason when it fails.",
+          },
+        ],
+        diagram: [
+          "  React dashboard ── POST /install ──► FastAPI ── job state ──► Redis",
+          "        ▲                                │                       ▲",
+          "        │                                ▼                       │",
+          "        └──── poll /progress ──── background thread ────────────┘",
+          "                                         │",
+          "                              brew  |  winget  |  apt",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "Job state lives in Redis",
+            detail:
+              "Progress is stored in Redis rather than in the web process, so the API stays stateless and any request can read the latest status.",
+          },
+          {
+            title: "Threads keep the interface responsive",
+            detail:
+              "Installs run in background threads, so the API can keep answering progress requests while packages download.",
+          },
+          {
+            title: "Smart app resolution",
+            detail:
+              "The same app has different package names on different systems. Ignite resolves Chrome to google-chrome or google-chrome-stable depending on the OS, and accepts any app your package manager supports.",
+          },
+          {
+            title: "Self-healing installs",
+            detail:
+              "If an app is a phantom install, with broken links left behind, Ignite detects it and tries a forced repair.",
+          },
+        ],
+      },
     },
   ];
 
@@ -129,17 +364,17 @@ export function Projects() {
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
-            const Icon = project.icon;
             return (
               <div
                 key={index}
-                className="group flex flex-col justify-between
+                className="group flex cursor-pointer flex-col justify-between
                   bg-white/70 dark:bg-gray-800/40 
                   backdrop-blur-md 
                   border border-gray-200/80 dark:border-gray-700/50 
                   rounded-2xl overflow-hidden 
                   transition-all duration-300 
                   hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-950/5 dark:hover:shadow-emerald-500/5 hover:-translate-y-1"
+                onClick={(event) => handleCardClick(event, project)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -177,7 +412,15 @@ export function Projects() {
                       <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                         {project.category}
                       </span>
-                      <Icon className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+                      <button
+                        type="button"
+                        onClick={() => setActiveProject(project)}
+                        aria-label={`Read the case study for ${project.title}`}
+                        title="Case study"
+                        className="-mr-2 rounded-full p-1.5 text-gray-400 transition-colors hover:bg-emerald-500/10 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:text-gray-500 dark:hover:text-emerald-400"
+                      >
+                        <Info className="w-4 h-4" />
+                      </button>
                     </div>
 
                     <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-emerald-500 transition-colors">
@@ -236,6 +479,13 @@ export function Projects() {
           })}
         </div>
       </div>
+
+      {activeProject && (
+        <ProjectModal
+          project={activeProject}
+          onClose={() => setActiveProject(null)}
+        />
+      )}
     </section>
   );
 }
