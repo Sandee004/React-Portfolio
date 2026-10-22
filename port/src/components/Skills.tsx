@@ -15,6 +15,7 @@ import {
   SiGrafana,
   SiPrometheus,
   SiSupabase,
+  SiSqlalchemy,
 } from "react-icons/si";
 
 interface SkillItem {
@@ -32,7 +33,7 @@ export function Skills() {
   const skillCategories: SkillCategory[] = [
     {
       category: "Languages & Core",
-      description: "Primary languages used for fullstack execution",
+      description: "What I write most",
       skills: [
         {
           name: "TypeScript",
@@ -47,8 +48,7 @@ export function Skills() {
     },
     {
       category: "Frontend & Mobile",
-      description:
-        "UI/UX, state management, and native cross-platform build systems",
+      description: "Websites and mobile apps",
       skills: [
         { name: "React", icon: <FaReact className="text-sky-400" /> },
         {
@@ -67,8 +67,8 @@ export function Skills() {
       ],
     },
     {
-      category: "Backend & Systems",
-      description: "API architecture, microservices, and micro-frameworks",
+      category: "Backend & Data",
+      description: "The APIs and databases behind them",
       skills: [
         { name: "FastAPI", icon: <SiFastapi className="text-emerald-500" /> },
         {
@@ -76,23 +76,23 @@ export function Skills() {
           icon: <SiFlask className="text-black dark:text-white" />,
         },
         {
-          name: "REST APIs",
-          icon: <span className="text-xs font-bold text-green-500">API</span>,
+          name: "SQLAlchemy",
+          icon: <SiSqlalchemy className="text-red-600" />,
         },
-      ],
-    },
-    {
-      category: "Data, Infra & Observability",
-      description:
-        "Databases, containerization, messaging, and real-time monitoring",
-      skills: [
-        { name: "Docker", icon: <FaDocker className="text-blue-600" /> },
         {
           name: "PostgreSQL",
           icon: <SiPostgresql className="text-blue-400" />,
         },
-        { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+        { name: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
         { name: "Redis", icon: <SiRedis className="text-red-500" /> },
+        { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+      ],
+    },
+    {
+      category: "Infrastructure & Monitoring",
+      description: "Running it in production and keeping an eye on it",
+      skills: [
+        { name: "Docker", icon: <FaDocker className="text-blue-600" /> },
         {
           name: "Kafka",
           icon: <SiApachekafka className="text-black dark:text-white" />,
@@ -102,7 +102,6 @@ export function Skills() {
           name: "Prometheus",
           icon: <SiPrometheus className="text-orange-600" />,
         },
-        { name: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
         { name: "Git & GitHub", icon: <FaGitAlt className="text-red-500" /> },
       ],
     },
