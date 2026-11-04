@@ -1,0 +1,197 @@
+/* Paper Desk View Styles & Variables */
+
+:root {
+  --paper-bg: #faf8f5;
+  --paper-bg-warm: #f5f2ea;
+  --paper-grid-color: rgba(20, 45, 30, 0.045);
+  --paper-grid-size: 28px;
+
+  /* Sticky Note Pastel Palette */
+  --note-yellow-bg: #fef9c3;
+  --note-yellow-border: #fef08a;
+  --note-yellow-text: #713f12;
+
+  --note-pink-bg: #fce7f3;
+  --note-pink-border: #fbcfe8;
+  --note-pink-text: #831843;
+
+  --note-mint-bg: #dcfce7;
+  --note-mint-border: #bbf7d0;
+  --note-mint-text: #14532d;
+
+  --note-blue-bg: #e0f2fe;
+  --note-blue-border: #bae6fd;
+  --note-blue-text: #0c4a6e;
+
+  --note-lavender-bg: #ede9fe;
+  --note-lavender-border: #ddd6fe;
+  --note-lavender-text: #4c1d95;
+
+  /* Washi Tape Colors */
+  --tape-yellow: rgba(254, 240, 138, 0.65);
+  --tape-mint: rgba(187, 247, 208, 0.65);
+  --tape-pink: rgba(254, 205, 211, 0.65);
+  --tape-clear: rgba(255, 255, 255, 0.65);
+  --tape-charcoal: rgba(30, 41, 59, 0.55);
+
+  /* Inks */
+  --ink-pen: #0f172a;
+  --ink-blue: #1d4ed8;
+  --ink-emerald: #059669;
+}
+
+/* Paper Grid Backgrounds */
+.paper-desk-bg {
+  background-color: var(--paper-bg);
+  background-image: 
+    linear-gradient(to right, var(--paper-grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--paper-grid-color) 1px, transparent 1px);
+  background-size: var(--paper-grid-size) var(--paper-grid-size);
+  background-position: -1px -1px;
+}
+
+.paper-desk-bg-dense {
+  background-color: var(--paper-bg);
+  background-image: 
+    linear-gradient(to right, var(--paper-grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--paper-grid-color) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Authentic Paper Shadows */
+.paper-shadow-sm {
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.paper-shadow {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 6px 16px -2px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.paper-shadow-lg {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 12px 28px -4px rgba(0, 0, 0, 0.09),
+    0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.paper-shadow-lifted {
+  box-shadow: 
+    0 10px 25px -3px rgba(0, 0, 0, 0.08),
+    0 4px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Tape Strip Styling */
+.washi-tape {
+  position: absolute;
+  height: 22px;
+  background-color: var(--tape-yellow);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(0, 0, 0, 0.08);
+  border-right: 2px dashed rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.washi-tape-mint {
+  background-color: var(--tape-mint);
+}
+
+.washi-tape-pink {
+  background-color: var(--tape-pink);
+}
+
+.washi-tape-clear {
+  background-color: var(--tape-clear);
+}
+
+.washi-tape-charcoal {
+  background-color: var(--tape-charcoal);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Fonts */
+.font-hand {
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+.font-marker {
+  font-family: 'Kalam', cursive, sans-serif;
+}
+
+.font-desk {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Marker Highlighter Effects */
+.highlighter-yellow {
+  background: linear-gradient(104deg, rgba(254, 240, 138, 0) 0.9%, rgba(254, 240, 138, 0.85) 2.4%, rgba(254, 240, 138, 0.65) 98%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.highlighter-mint {
+  background: linear-gradient(104deg, rgba(187, 247, 208, 0) 0.9%, rgba(187, 247, 208, 0.85) 2.4%, rgba(187, 247, 208, 0.65) 98%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.highlighter-pink {
+  background: linear-gradient(104deg, rgba(254, 205, 211, 0) 0.9%, rgba(254, 205, 211, 0.85) 2.4%, rgba(254, 205, 211, 0.65) 98%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Subtle Hover Wobble */
+@keyframes note-wobble {
+  0% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  25% { transform: translateY(-4px) rotate(calc(var(--rot, 0deg) - 0.7deg)); }
+  75% { transform: translateY(-4px) rotate(calc(var(--rot, 0deg) + 0.7deg)); }
+  100% { transform: translateY(-3px) rotate(var(--rot, 0deg)); }
+}
+
+.hover-wobble {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.hover-wobble:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 
+    0 14px 28px -4px rgba(0, 0, 0, 0.1),
+    0 4px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hover-wobble:hover {
+    transform: none !important;
+  }
+  .hover-wobble {
+    transition: none !important;
+  }
+}
+
+/* Mobile: flatten rotations to prevent horizontal scroll */
+@media (max-width: 640px) {
+  .desk-tilt {
+    transform: none !important;
+  }
+}
+
