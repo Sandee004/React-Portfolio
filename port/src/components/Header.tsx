@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { Menu, X, Code2 } from "lucide-react";
 import { DarkModeToggle } from "./darkmode";
 
-export function Header() {
+interface HeaderProps {
+  onSwitchToPaper?: () => void;
+}
+
+export function Header({ onSwitchToPaper }: HeaderProps = {}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
   const [scrolled, setScrolled] = useState(false);
@@ -73,7 +77,7 @@ export function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-4">
           <nav className="flex items-center space-x-1 bg-gray-100/80 dark:bg-gray-800/50 p-1.5 rounded-full border border-gray-200/60 dark:border-gray-700/50 backdrop-blur-md">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
@@ -96,11 +100,31 @@ export function Header() {
               );
             })}
           </nav>
+          {onSwitchToPaper && (
+            <button
+              onClick={onSwitchToPaper}
+              title="Switch to Paper Desk View"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-2xs"
+            >
+              <span>📎</span>
+              <span>Desk View</span>
+            </button>
+          )}
           <DarkModeToggle />
         </div>
 
         {/* Mobile Toggle Controls */}
         <div className="flex md:hidden items-center gap-2">
+          {onSwitchToPaper && (
+            <button
+              onClick={onSwitchToPaper}
+              aria-label="Switch to Desk View"
+              className="px-2.5 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-semibold flex items-center gap-1"
+            >
+              <span>📎</span>
+              <span className="text-[11px]">Desk</span>
+            </button>
+          )}
           <DarkModeToggle />
           <button
             className="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200/80 dark:border-gray-700/60"
@@ -141,6 +165,19 @@ export function Header() {
               );
             })}
           </nav>
+          {onSwitchToPaper && (
+            <div className="pt-3 mt-2 border-t border-gray-200 dark:border-gray-800">
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  onSwitchToPaper();
+                }}
+                className="w-full py-2.5 px-3 text-center text-xs font-semibold rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/30 flex items-center justify-center gap-2 transition-colors"
+              >
+                <span>📎 Switch to Paper Desk View</span>
+              </button>
+            </div>
+          )}
         </div>
       )}
     </header>
