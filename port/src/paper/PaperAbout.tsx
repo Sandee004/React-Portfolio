@@ -16,20 +16,10 @@ export function PaperAbout() {
       className="relative pt-28 pb-16 md:pt-36 md:pb-24 border-b border-stone-200/90 overflow-hidden"
     >
       <div className="container mx-auto px-4">
-        {/* Collaborator Cursor Chip - Floating top left (Image 1 style) */}
-        <div className="hidden lg:block absolute top-28 left-12 z-20">
-          <CursorChip name="Sandee" color="emerald" role="engineer" rotate={-4} />
-        </div>
-
-        {/* Collaborator Cursor Chip - Floating top right (Image 1 style) */}
-        <div className="hidden lg:block absolute top-32 right-16 z-20">
-          <CursorChip name="Visitor" color="purple" role="browsing" rotate={3} />
-        </div>
-
         {/* --- Top Hero Header (Centered Image 1 style) --- */}
         <div className="max-w-4xl mx-auto text-center relative mb-14 md:mb-20">
-          {/* Floating Sticky Note 1 - Top Right (Image 1 "less, but better" style) */}
-          <div className="hidden md:block absolute -top-8 -right-8 lg:-right-16 z-20">
+          {/* Floating Sticky Note 1 - High Top Right (Image 1 "less, but better" style) */}
+          <div className="hidden md:block absolute -top-8 -right-4 lg:-right-12 z-20">
             <StickyNote
               color="pink"
               rotation={2.5}
@@ -44,8 +34,8 @@ export function PaperAbout() {
             </StickyNote>
           </div>
 
-          {/* Floating Sticky Note 2 - Mid Left (Image 1 "strategy before pretty" style) */}
-          <div className="hidden md:block absolute top-28 -left-8 lg:-left-20 z-20">
+          {/* Floating Sticky Note 2 - Upper Left (Image 1 "strategy before pretty" style) */}
+          <div className="hidden md:block absolute top-10 -left-6 lg:-left-16 z-20">
             <StickyNote
               color="yellow"
               rotation={-3}
@@ -58,6 +48,16 @@ export function PaperAbout() {
                 database to deployment 🚀
               </span>
             </StickyNote>
+          </div>
+
+          {/* Collaborator Cursor Chip - Mid Right, beside headline (Image 1 "Theo" style) */}
+          <div className="hidden lg:block absolute top-40 -right-2 lg:-right-14 z-20">
+            <CursorChip name="Visitor" color="purple" role="browsing" rotate={3} />
+          </div>
+
+          {/* Collaborator Cursor Chip - Lower Left, beside bio (Image 1 "Iris" style) */}
+          <div className="hidden lg:block absolute top-[290px] -left-2 lg:-left-12 z-20">
+            <CursorChip name="Sandee" color="emerald" role="engineer" rotate={-4} />
           </div>
 
           {/* Floating Profile Badge Pill (Image 1 style) */}
@@ -74,9 +74,9 @@ export function PaperAbout() {
 
           {/* Main Headline (Clean bold sans + handwritten marker accent in deep blue) */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-stone-900 tracking-tight leading-[1.08] mb-6">
-            We think in systems,{" "}
+            From abstract ideas,{" "}
             <span className="font-hand text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-blue-600 block sm:inline-block sm:ml-2 -rotate-1 relative">
-              ship in production.
+              to tangible solutions.
               {/* Subtle hand-drawn marker curve under the word */}
               <svg
                 className="absolute -bottom-2 left-0 w-full h-3 text-blue-300/80 -z-10"

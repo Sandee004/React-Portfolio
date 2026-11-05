@@ -195,6 +195,90 @@ export function Projects() {
       },
     },
     {
+      title: "JOH",
+      category: "Workforce & Verification Platform",
+      description:
+        "A digital trust and workforce marketplace bringing structure to Nigeria's informal sector. Connects clients with vetted artisans, verifies trade credentials on-site via dynamic QR codes, and streamlines equipment rentals.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Supabase",
+        "QR Verification",
+        "Vite",
+      ],
+      image: "/joh.jpeg",
+      liveLink: "https://joh.com.ng",
+      githubLink: "https://joh.com.ng",
+      caseStudy: {
+        overview:
+          "JOH is a digital marketplace and workforce verification platform designed to bring structure, trust, and technology to Nigeria's informal sector. It empowers skilled artisans, technicians, and equipment fleet owners to offer their services with transparent pricing and scannable QR verification badges, while giving households and enterprises a dependable roster of thoroughly vetted professionals.",
+        why: "The informal sector represents the backbone of trade and skilled craftsmanship in Nigeria, but transactions are hindered by trust deficits: clients gamble with unverified workers, and skilled tradespeople struggle to establish verified portable reputations. JOH eliminates this uncertainty by pairing structured skill categorization with on-site QR verification and equipment booking.",
+        flowTitle: "How clients discover and verify trusted professionals",
+        flow: [
+          {
+            title: "Search by trade & city",
+            detail:
+              "Clients filter by trade category, specialty skill, and city location with instant responsive directory querying.",
+          },
+          {
+            title: "Inspect transparent rates & vetting",
+            detail:
+              "Profiles showcase verified credentials, trade specializations, peer review ratings, and transparent daily billing rates without hidden markups.",
+          },
+          {
+            title: "On-site scannable QR verification",
+            detail:
+              "Clients scan the artisan's cryptographic QR badge directly on-site to cross-reference identity credentials and trade certification in seconds.",
+          },
+          {
+            title: "Equipment & machinery booking",
+            detail:
+              "Contractors and farm managers can browse heavy machinery, tractors, and specialized equipment rosters with daily rental availability.",
+          },
+          {
+            title: "Reputation & review history",
+            detail:
+              "Completed engagements build an immutable track record of customer ratings that stay attached to the professional's verifiable portfolio.",
+          },
+        ],
+        diagram: [
+          "  Client & Enterprise Webapp (React + TypeScript)",
+          "  Dynamic Search ── Trade Filters ── QR Badge Verification",
+          "                     │",
+          "                     ▼",
+          "  Client-Side QR Engine (Dynamic Verification Slugs)",
+          "  Cryptographic URL verification for on-site visual audits",
+          "                     │",
+          "                     ▼",
+          "  High-Availability Database & Storage (Supabase / PostgreSQL)",
+          "  Vetted Artisans  │  Equipment Roster  │  City Hubs",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "On-site cryptographic QR verification",
+            detail:
+              "To combat impersonation and fraud on work sites, each professional profile generates a dynamic, scannable verification badge that clients can audit instantly on their own devices.",
+          },
+          {
+            title: "Two-sided service and equipment ecosystem",
+            detail:
+              "Decoupled skilled craftsmanship inquiries from heavy equipment and machinery rentals, creating purpose-built booking pipelines for both tradespeople and equipment fleets.",
+          },
+          {
+            title: "Lightweight, low-latency mobile performance",
+            detail:
+              "Engineered for real-world field conditions where workers and site managers rely on mobile devices with variable network speeds, prioritizing instant initial load and clean responsive touch targets.",
+          },
+          {
+            title: "Zero-friction direct connection",
+            detail:
+              "Removed unnecessary intermediary bottlenecks so verified clients can contact vetted artisans and equipment owners directly once identity credentials are confirmed.",
+          },
+        ],
+      },
+    },
+    {
       title: "DCraftHouse",
       category: "Online shop",
       description:
@@ -394,15 +478,27 @@ export function Projects() {
                           : "opacity-0 pointer-events-none"
                       }`}
                     >
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
-                      >
-                        <Github size={15} />
-                        Source Code
-                      </a>
+                      {project.githubLink.includes("github.com") ? (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
+                        >
+                          <Github size={15} />
+                          Source Code
+                        </a>
+                      ) : project.liveLink ? (
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
+                        >
+                          <ExternalLink size={15} />
+                          Visit Platform
+                        </a>
+                      ) : null}
                     </div>
                   </div>
 

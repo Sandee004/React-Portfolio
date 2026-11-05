@@ -4,7 +4,7 @@ import { PaperSkills } from "./PaperSkills";
 import { PaperExperience } from "./PaperExperience";
 import { PaperProjects } from "./PaperProjects";
 import { PaperContact } from "./PaperContact";
-import { Github, Linkedin, Twitter, Mail, Laptop } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import "./paper.css";
 
 interface PaperPortfolioProps {
@@ -69,17 +69,17 @@ export function PaperPortfolio({ onSwitchToClassic }: PaperPortfolioProps) {
           <Mail className="w-4 h-4" />
         </a>
 
-        <div className="h-4 w-px bg-stone-200 mx-1" />
+        {/* <div className="h-4 w-px bg-stone-200 mx-1" />
 
-        {/* Quick View Switcher button in dock */}
-        <button
+        {/* Quick View Switcher button in dock /}
+         <button
           onClick={onSwitchToClassic}
           title="Switch to Classic View"
           className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold transition-all hover:scale-105"
         >
           <Laptop className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">Classic View</span>
-        </button>
+        </button> */}
       </aside>
     </div>
   );

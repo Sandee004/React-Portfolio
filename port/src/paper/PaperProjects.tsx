@@ -204,6 +204,93 @@ export function PaperProjects() {
       },
     },
     {
+      title: "JOH",
+      category: "Workforce & Verification Platform",
+      tapeVariant: "mint",
+      rotation: -1.1,
+      tapeAngle: 1.5,
+      description:
+        "A digital trust and workforce marketplace bringing structure to Nigeria's informal sector. Connects clients with vetted artisans, verifies trade credentials on-site via dynamic QR codes, and streamlines equipment rentals.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Supabase",
+        "QR Verification",
+        "Vite",
+      ],
+      image: "/joh.jpeg",
+      liveLink: "https://joh.com.ng",
+      githubLink: "https://joh.com.ng",
+      caseStudy: {
+        overview:
+          "JOH is a digital marketplace and workforce verification platform designed to bring structure, trust, and technology to Nigeria's informal sector. It empowers skilled artisans, technicians, and equipment fleet owners to offer their services with transparent pricing and scannable QR verification badges, while giving households and enterprises a dependable roster of thoroughly vetted professionals.",
+        why: "The informal sector represents the backbone of trade and skilled craftsmanship in Nigeria, but transactions are hindered by trust deficits: clients gamble with unverified workers, and skilled tradespeople struggle to establish verified portable reputations. JOH eliminates this uncertainty by pairing structured skill categorization with on-site QR verification and equipment booking.",
+        flowTitle: "How clients discover and verify trusted professionals",
+        flow: [
+          {
+            title: "Search by trade & city",
+            detail:
+              "Clients filter by trade category, specialty skill, and city location with instant responsive directory querying.",
+          },
+          {
+            title: "Inspect transparent rates & vetting",
+            detail:
+              "Profiles showcase verified credentials, trade specializations, peer review ratings, and transparent daily billing rates without hidden markups.",
+          },
+          {
+            title: "On-site scannable QR verification",
+            detail:
+              "Clients scan the artisan's cryptographic QR badge directly on-site to cross-reference identity credentials and trade certification in seconds.",
+          },
+          {
+            title: "Equipment & machinery booking",
+            detail:
+              "Contractors and farm managers can browse heavy machinery, tractors, and specialized equipment rosters with daily rental availability.",
+          },
+          {
+            title: "Reputation & review history",
+            detail:
+              "Completed engagements build an immutable track record of customer ratings that stay attached to the professional's verifiable portfolio.",
+          },
+        ],
+        diagram: [
+          "  Client & Enterprise Webapp (React + TypeScript)",
+          "  Dynamic Search ── Trade Filters ── QR Badge Verification",
+          "                     │",
+          "                     ▼",
+          "  Client-Side QR Engine (Dynamic Verification Slugs)",
+          "  Cryptographic URL verification for on-site visual audits",
+          "                     │",
+          "                     ▼",
+          "  High-Availability Database & Storage (Supabase / PostgreSQL)",
+          "  Vetted Artisans  │  Equipment Roster  │  City Hubs",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "On-site cryptographic QR verification",
+            detail:
+              "To combat impersonation and fraud on work sites, each professional profile generates a dynamic, scannable verification badge that clients can audit instantly on their own devices.",
+          },
+          {
+            title: "Two-sided service and equipment ecosystem",
+            detail:
+              "Decoupled skilled craftsmanship inquiries from heavy equipment and machinery rentals, creating purpose-built booking pipelines for both tradespeople and equipment fleets.",
+          },
+          {
+            title: "Lightweight, low-latency mobile performance",
+            detail:
+              "Engineered for real-world field conditions where workers and site managers rely on mobile devices with variable network speeds, prioritizing instant initial load and clean responsive touch targets.",
+          },
+          {
+            title: "Zero-friction direct connection",
+            detail:
+              "Removed unnecessary intermediary bottlenecks so verified clients can contact vetted artisans and equipment owners directly once identity credentials are confirmed.",
+          },
+        ],
+      },
+    },
+    {
       title: "DCraftHouse",
       category: "Online shop",
       tapeVariant: "pink",
@@ -369,7 +456,7 @@ export function PaperProjects() {
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 max-w-6xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 max-w-7xl mx-auto">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/70 border border-emerald-300/60 text-emerald-800 text-xs font-semibold mb-3">
               <span>Selected Work</span>
@@ -398,8 +485,8 @@ export function PaperProjects() {
           </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Project Cards Grid - 3 per row on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -413,13 +500,13 @@ export function PaperProjects() {
               <Tape
                 variant={project.tapeVariant}
                 angle={project.tapeAngle}
-                width="w-32"
+                width="w-28"
                 position="top-center"
               />
 
               <div>
                 {/* Photo Snapshot Container */}
-                <div className="relative overflow-hidden h-52 sm:h-56 bg-stone-100 border-b border-stone-200/80">
+                <div className="relative overflow-hidden h-44 sm:h-48 bg-stone-100 border-b border-stone-200/80">
                   <img
                     src={project.image}
                     alt={`Screenshot of ${project.title}`}
@@ -434,21 +521,34 @@ export function PaperProjects() {
                         : "opacity-0 pointer-events-none"
                     }`}
                   >
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-white text-stone-900 rounded-full text-xs font-semibold shadow-md hover:bg-stone-100 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Github size={14} />
-                      Source Code
-                    </a>
+                    {project.githubLink.includes("github.com") ? (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white text-stone-900 rounded-full text-xs font-semibold shadow-md hover:bg-stone-100 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github size={14} />
+                        Source Code
+                      </a>
+                    ) : project.liveLink ? (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white text-stone-900 rounded-full text-xs font-semibold shadow-md hover:bg-stone-100 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink size={14} />
+                        Live Platform
+                      </a>
+                    ) : null}
                   </div>
                 </div>
 
                 {/* Card Body */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   {/* Category with Highlighter swash */}
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded-md">
@@ -465,20 +565,20 @@ export function PaperProjects() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold mb-2 text-stone-900 tracking-tight group-hover:text-emerald-700 transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-stone-900 tracking-tight group-hover:text-emerald-700 transition-colors">
                     {project.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed mb-5">
+                  <p className="text-stone-600 text-xs sm:text-[13px] leading-relaxed mb-4">
                     {project.description}
                   </p>
                 </div>
               </div>
 
               {/* Card Footer: Tech Tags & Direct Links */}
-              <div className="p-6 pt-0 mt-auto">
-                <div className="flex flex-wrap gap-1.5 mb-5 pt-4 border-t border-stone-100">
+              <div className="p-5 sm:p-6 pt-0 mt-auto">
+                <div className="flex flex-wrap gap-1.5 mb-4 pt-4 border-t border-stone-100">
                   {project.tech.map((t, idx) => (
                     <span
                       key={idx}
