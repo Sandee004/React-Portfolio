@@ -76,7 +76,7 @@ export function PaperAbout() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-stone-900 tracking-tight leading-[1.08] mb-6">
             From abstract ideas,{" "}
             <span className="font-hand text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-blue-600 block sm:inline-block sm:ml-2 -rotate-1 relative">
-              to tangible soltuions.
+              to tangible solutions.
               {/* Subtle hand-drawn marker curve under the word */}
               <svg
                 className="absolute -bottom-2 left-0 w-full h-3 text-blue-300/80 -z-10"
