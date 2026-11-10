@@ -74,9 +74,9 @@ export function PaperAbout() {
 
           {/* Main Headline (Clean bold sans + handwritten marker accent in deep blue) */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-stone-900 tracking-tight leading-[1.08] mb-6">
-            We think in systems,{" "}
+            From abstract ideas,{" "}
             <span className="font-hand text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-blue-600 block sm:inline-block sm:ml-2 -rotate-1 relative">
-              ship in production.
+              to tangible soltuions.
               {/* Subtle hand-drawn marker curve under the word */}
               <svg
                 className="absolute -bottom-2 left-0 w-full h-3 text-blue-300/80 -z-10"
