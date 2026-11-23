@@ -291,6 +291,94 @@ export function PaperProjects() {
       },
     },
     {
+      title: "MiFi Desk",
+      category: "Companion Dashboard",
+      tapeVariant: "charcoal",
+      rotation: 1.2,
+      tapeAngle: -1.8,
+      description:
+        "A lightweight companion dashboard for Glo 4G pocket routers. Shows live battery percentage, who is currently connected, signal strength and data usage on a single screen instead of dealing with the slow, cluttered default web portal.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Vite",
+        "CGI Telemetry",
+      ],
+      image: "/mifi-desk.png",
+      liveLink: "https://mifi-desk.vercel.app/",
+      githubLink: "https://github.com/Sandee004/mifi-desk",
+      caseStudy: {
+        overview:
+          "MiFi Desk is a clean, personal companion dashboard built for Glo 4G MiFi routers. It polls the router's local endpoint to pull key telemetry — battery percentage, charging state, active connected devices, signal strength, and data usage — into a single, responsive interface.",
+        why: "The default Glo router admin portal (192.168.7.1) is slow to load, cluttered, and outdated. Finding out simple things like how much battery is left or who is connected meant clicking through multiple clumsy pages. I wanted a fast, calm dashboard that shows the essentials at a glance without the bloat.",
+        flowTitle: "How telemetry and modes work",
+        flow: [
+          {
+            title: "Poll local telemetry",
+            detail:
+              "In live mode, the dashboard polls the router’s /xml_action.cgi endpoint every two seconds to fetch battery level, signal quality, uptime, and bandwidth counters.",
+          },
+          {
+            title: "Decode device identities",
+            detail:
+              "The router returns connected device names in hex or UTF-16 byte strings. A decoder parses them into readable names (such as phones and laptops) and maps their local IP and MAC addresses.",
+          },
+          {
+            title: "Track active devices & usage",
+            detail:
+              "The dashboard displays connected devices with live traffic meters, allowing devices to be renamed or organized with custom friendly labels saved locally.",
+          },
+          {
+            title: "Quick Wi-Fi & SIM sharing",
+            detail:
+              "Generates an instant, scannable Wi-Fi QR code so guests can connect without typing passwords, along with one-tap copying of the MiFi SIM phone number for quick data top-ups.",
+          },
+          {
+            title: "Demo mode for external visitors",
+            detail:
+              "Because the physical router only responds on its private local IP (192.168.7.1), an integrated Demo View simulates realistic live telemetry, device traffic, and network toggles so anyone without a Glo MiFi can fully test and explore the dashboard.",
+          },
+        ],
+        diagram: [
+          "  MiFi Desk Dashboard (React + TypeScript + Vite)",
+          "  Live telemetry cards, connected device roster, Wi-Fi QR sharing",
+          "                 │",
+          "                 ├── [Live Mode] ──► GET /xml_action.cgi (192.168.7.1)",
+          "                 │                    ├─ Status: battery, signal, rx/tx speed",
+          "                 │                    ├─ Devices: hex-encoded names & MACs",
+          "                 │                    └─ Homepage/SIM: phone number, IMEI",
+          "                 │",
+          "                 └── [Demo Mode] ──► MockRouterClient (In-memory simulation)",
+          "                                      ├─ Realistic live traffic fluctuations",
+          "                                      ├─ Device join/leave simulations",
+          "                                      └─ Low battery & weak signal toggles",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "Demo View for visitors without the router",
+            detail:
+              "The physical Glo MiFi only answers requests when a device is connected to its local Wi-Fi at 192.168.7.1. To let anyone view and test the project without owning the hardware, I built an interactive Demo View that simulates live telemetry, device connections, and toggleable battery/signal states.",
+          },
+          {
+            title: "Decoding raw router hex strings",
+            detail:
+              "The router firmware formats connected SSIDs and client hostnames into raw UTF-16BE hex strings (such as 004d0069... for Mines) or space-separated hex bytes. A universal decoder converts them on the fly into clean, human-readable device names.",
+          },
+          {
+            title: "Local-first persistence for custom names",
+            detail:
+              "Pocket routers don't allow renaming clients on the firmware itself. Friendly device nicknames (like personal laptops vs. phones) and saved Wi-Fi credentials are stored in localStorage so they persist across sessions without requiring a backend database.",
+          },
+          {
+            title: "Lightweight polling over heavy frameworks",
+            detail:
+              "Rather than adding complex server infrastructure, the dashboard runs entirely client-side. It polls the router's CGI endpoint directly with clean interval polling and low overhead, keeping the dashboard snappy and battery-friendly on laptops.",
+          },
+        ],
+      },
+    },
+    {
       title: "DCraftHouse",
       category: "Online shop",
       tapeVariant: "pink",
