@@ -204,6 +204,181 @@ export function PaperProjects() {
       },
     },
     {
+      title: "JOH",
+      category: "Workforce & Verification Platform",
+      tapeVariant: "mint",
+      rotation: -1.1,
+      tapeAngle: 1.5,
+      description:
+        "A digital trust and workforce marketplace bringing structure to Nigeria's informal sector. Connects clients with vetted artisans, verifies trade credentials on-site via dynamic QR codes, and streamlines equipment rentals.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Supabase",
+        "QR Verification",
+        "Vite",
+      ],
+      image: "/joh.jpeg",
+      liveLink: "https://joh.com.ng",
+      githubLink: "https://joh.com.ng",
+      caseStudy: {
+        overview:
+          "JOH is a digital marketplace and workforce verification platform designed to bring structure, trust, and technology to Nigeria's informal sector. It empowers skilled artisans, technicians, and equipment fleet owners to offer their services with transparent pricing and scannable QR verification badges, while giving households and enterprises a dependable roster of thoroughly vetted professionals.",
+        why: "The informal sector represents the backbone of trade and skilled craftsmanship in Nigeria, but transactions are hindered by trust deficits: clients gamble with unverified workers, and skilled tradespeople struggle to establish verified portable reputations. JOH eliminates this uncertainty by pairing structured skill categorization with on-site QR verification and equipment booking.",
+        flowTitle: "How clients discover and verify trusted professionals",
+        flow: [
+          {
+            title: "Search by trade & city",
+            detail:
+              "Clients filter by trade category, specialty skill, and city location with instant responsive directory querying.",
+          },
+          {
+            title: "Inspect transparent rates & vetting",
+            detail:
+              "Profiles showcase verified credentials, trade specializations, peer review ratings, and transparent daily billing rates without hidden markups.",
+          },
+          {
+            title: "On-site scannable QR verification",
+            detail:
+              "Clients scan the artisan's cryptographic QR badge directly on-site to cross-reference identity credentials and trade certification in seconds.",
+          },
+          {
+            title: "Equipment & machinery booking",
+            detail:
+              "Contractors and farm managers can browse heavy machinery, tractors, and specialized equipment rosters with daily rental availability.",
+          },
+          {
+            title: "Reputation & review history",
+            detail:
+              "Completed engagements build an immutable track record of customer ratings that stay attached to the professional's verifiable portfolio.",
+          },
+        ],
+        diagram: [
+          "  Client & Enterprise Webapp (React + TypeScript)",
+          "  Dynamic Search ── Trade Filters ── QR Badge Verification",
+          "                     │",
+          "                     ▼",
+          "  Client-Side QR Engine (Dynamic Verification Slugs)",
+          "  Cryptographic URL verification for on-site visual audits",
+          "                     │",
+          "                     ▼",
+          "  High-Availability Database & Storage (Supabase / PostgreSQL)",
+          "  Vetted Artisans  │  Equipment Roster  │  City Hubs",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "On-site cryptographic QR verification",
+            detail:
+              "To combat impersonation and fraud on work sites, each professional profile generates a dynamic, scannable verification badge that clients can audit instantly on their own devices.",
+          },
+          {
+            title: "Two-sided service and equipment ecosystem",
+            detail:
+              "Decoupled skilled craftsmanship inquiries from heavy equipment and machinery rentals, creating purpose-built booking pipelines for both tradespeople and equipment fleets.",
+          },
+          {
+            title: "Lightweight, low-latency mobile performance",
+            detail:
+              "Engineered for real-world field conditions where workers and site managers rely on mobile devices with variable network speeds, prioritizing instant initial load and clean responsive touch targets.",
+          },
+          {
+            title: "Zero-friction direct connection",
+            detail:
+              "Removed unnecessary intermediary bottlenecks so verified clients can contact vetted artisans and equipment owners directly once identity credentials are confirmed.",
+          },
+        ],
+      },
+    },
+    {
+      title: "MiFi Desk",
+      category: "Companion Dashboard",
+      tapeVariant: "charcoal",
+      rotation: 1.2,
+      tapeAngle: -1.8,
+      description:
+        "A lightweight companion dashboard for Glo 4G pocket routers. Shows live battery percentage, who is currently connected, signal strength and data usage on a single screen instead of dealing with the slow, cluttered default web portal.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Vite",
+        "CGI Telemetry",
+      ],
+      image: "/mifi-desk.png",
+      liveLink: "https://mifi-desk.vercel.app/",
+      githubLink: "https://github.com/Sandee004/mifi-desk",
+      caseStudy: {
+        overview:
+          "MiFi Desk is a clean, personal companion dashboard built for Glo 4G MiFi routers. It polls the router's local endpoint to pull key telemetry — battery percentage, charging state, active connected devices, signal strength, and data usage — into a single, responsive interface.",
+        why: "The default Glo router admin portal (192.168.7.1) is slow to load, cluttered, and outdated. Finding out simple things like how much battery is left or who is connected meant clicking through multiple clumsy pages. I wanted a fast, calm dashboard that shows the essentials at a glance without the bloat.",
+        flowTitle: "How telemetry and modes work",
+        flow: [
+          {
+            title: "Poll local telemetry",
+            detail:
+              "In live mode, the dashboard polls the router’s /xml_action.cgi endpoint every two seconds to fetch battery level, signal quality, uptime, and bandwidth counters.",
+          },
+          {
+            title: "Decode device identities",
+            detail:
+              "The router returns connected device names in hex or UTF-16 byte strings. A decoder parses them into readable names (such as phones and laptops) and maps their local IP and MAC addresses.",
+          },
+          {
+            title: "Track active devices & usage",
+            detail:
+              "The dashboard displays connected devices with live traffic meters, allowing devices to be renamed or organized with custom friendly labels saved locally.",
+          },
+          {
+            title: "Quick Wi-Fi & SIM sharing",
+            detail:
+              "Generates an instant, scannable Wi-Fi QR code so guests can connect without typing passwords, along with one-tap copying of the MiFi SIM phone number for quick data top-ups.",
+          },
+          {
+            title: "Demo mode for external visitors",
+            detail:
+              "Because the physical router only responds on its private local IP (192.168.7.1), an integrated Demo View simulates realistic live telemetry, device traffic, and network toggles so anyone without a Glo MiFi can fully test and explore the dashboard.",
+          },
+        ],
+        diagram: [
+          "  MiFi Desk Dashboard (React + TypeScript + Vite)",
+          "  Live telemetry cards, connected device roster, Wi-Fi QR sharing",
+          "                 │",
+          "                 ├── [Live Mode] ──► GET /xml_action.cgi (192.168.7.1)",
+          "                 │                    ├─ Status: battery, signal, rx/tx speed",
+          "                 │                    ├─ Devices: hex-encoded names & MACs",
+          "                 │                    └─ Homepage/SIM: phone number, IMEI",
+          "                 │",
+          "                 └── [Demo Mode] ──► MockRouterClient (In-memory simulation)",
+          "                                      ├─ Realistic live traffic fluctuations",
+          "                                      ├─ Device join/leave simulations",
+          "                                      └─ Low battery & weak signal toggles",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "Demo View for visitors without the router",
+            detail:
+              "The physical Glo MiFi only answers requests when a device is connected to its local Wi-Fi at 192.168.7.1. To let anyone view and test the project without owning the hardware, I built an interactive Demo View that simulates live telemetry, device connections, and toggleable battery/signal states.",
+          },
+          {
+            title: "Decoding raw router hex strings",
+            detail:
+              "The router firmware formats connected SSIDs and client hostnames into raw UTF-16BE hex strings (such as 004d0069... for Mines) or space-separated hex bytes. A universal decoder converts them on the fly into clean, human-readable device names.",
+          },
+          {
+            title: "Local-first persistence for custom names",
+            detail:
+              "Pocket routers don't allow renaming clients on the firmware itself. Friendly device nicknames (like personal laptops vs. phones) and saved Wi-Fi credentials are stored in localStorage so they persist across sessions without requiring a backend database.",
+          },
+          {
+            title: "Lightweight polling over heavy frameworks",
+            detail:
+              "Rather than adding complex server infrastructure, the dashboard runs entirely client-side. It polls the router's CGI endpoint directly with clean interval polling and low overhead, keeping the dashboard snappy and battery-friendly on laptops.",
+          },
+        ],
+      },
+    },
+    {
       title: "DCraftHouse",
       category: "Online shop",
       tapeVariant: "pink",
@@ -369,7 +544,7 @@ export function PaperProjects() {
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 max-w-6xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 max-w-7xl mx-auto">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/70 border border-emerald-300/60 text-emerald-800 text-xs font-semibold mb-3">
               <span>Selected Work</span>
@@ -398,8 +573,8 @@ export function PaperProjects() {
           </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Project Cards Grid - 3 per row on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -413,13 +588,13 @@ export function PaperProjects() {
               <Tape
                 variant={project.tapeVariant}
                 angle={project.tapeAngle}
-                width="w-32"
+                width="w-28"
                 position="top-center"
               />
 
               <div>
                 {/* Photo Snapshot Container */}
-                <div className="relative overflow-hidden h-52 sm:h-56 bg-stone-100 border-b border-stone-200/80">
+                <div className="relative overflow-hidden h-44 sm:h-48 bg-stone-100 border-b border-stone-200/80">
                   <img
                     src={project.image}
                     alt={`Screenshot of ${project.title}`}
@@ -434,21 +609,34 @@ export function PaperProjects() {
                         : "opacity-0 pointer-events-none"
                     }`}
                   >
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-white text-stone-900 rounded-full text-xs font-semibold shadow-md hover:bg-stone-100 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Github size={14} />
-                      Source Code
-                    </a>
+                    {project.githubLink.includes("github.com") ? (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white text-stone-900 rounded-full text-xs font-semibold shadow-md hover:bg-stone-100 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github size={14} />
+                        Source Code
+                      </a>
+                    ) : project.liveLink ? (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white text-stone-900 rounded-full text-xs font-semibold shadow-md hover:bg-stone-100 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink size={14} />
+                        Live Platform
+                      </a>
+                    ) : null}
                   </div>
                 </div>
 
                 {/* Card Body */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   {/* Category with Highlighter swash */}
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded-md">
@@ -465,20 +653,20 @@ export function PaperProjects() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold mb-2 text-stone-900 tracking-tight group-hover:text-emerald-700 transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-stone-900 tracking-tight group-hover:text-emerald-700 transition-colors">
                     {project.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed mb-5">
+                  <p className="text-stone-600 text-xs sm:text-[13px] leading-relaxed mb-4">
                     {project.description}
                   </p>
                 </div>
               </div>
 
               {/* Card Footer: Tech Tags & Direct Links */}
-              <div className="p-6 pt-0 mt-auto">
-                <div className="flex flex-wrap gap-1.5 mb-5 pt-4 border-t border-stone-100">
+              <div className="p-5 sm:p-6 pt-0 mt-auto">
+                <div className="flex flex-wrap gap-1.5 mb-4 pt-4 border-t border-stone-100">
                   {project.tech.map((t, idx) => (
                     <span
                       key={idx}

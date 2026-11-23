@@ -195,6 +195,175 @@ export function Projects() {
       },
     },
     {
+      title: "JOH",
+      category: "Workforce & Verification Platform",
+      description:
+        "A digital trust and workforce marketplace bringing structure to Nigeria's informal sector. Connects clients with vetted artisans, verifies trade credentials on-site via dynamic QR codes, and streamlines equipment rentals.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Supabase",
+        "QR Verification",
+        "Vite",
+      ],
+      image: "/joh.jpeg",
+      liveLink: "https://joh.com.ng",
+      githubLink: "https://joh.com.ng",
+      caseStudy: {
+        overview:
+          "JOH is a digital marketplace and workforce verification platform designed to bring structure, trust, and technology to Nigeria's informal sector. It empowers skilled artisans, technicians, and equipment fleet owners to offer their services with transparent pricing and scannable QR verification badges, while giving households and enterprises a dependable roster of thoroughly vetted professionals.",
+        why: "The informal sector represents the backbone of trade and skilled craftsmanship in Nigeria, but transactions are hindered by trust deficits: clients gamble with unverified workers, and skilled tradespeople struggle to establish verified portable reputations. JOH eliminates this uncertainty by pairing structured skill categorization with on-site QR verification and equipment booking.",
+        flowTitle: "How clients discover and verify trusted professionals",
+        flow: [
+          {
+            title: "Search by trade & city",
+            detail:
+              "Clients filter by trade category, specialty skill, and city location with instant responsive directory querying.",
+          },
+          {
+            title: "Inspect transparent rates & vetting",
+            detail:
+              "Profiles showcase verified credentials, trade specializations, peer review ratings, and transparent daily billing rates without hidden markups.",
+          },
+          {
+            title: "On-site scannable QR verification",
+            detail:
+              "Clients scan the artisan's cryptographic QR badge directly on-site to cross-reference identity credentials and trade certification in seconds.",
+          },
+          {
+            title: "Equipment & machinery booking",
+            detail:
+              "Contractors and farm managers can browse heavy machinery, tractors, and specialized equipment rosters with daily rental availability.",
+          },
+          {
+            title: "Reputation & review history",
+            detail:
+              "Completed engagements build an immutable track record of customer ratings that stay attached to the professional's verifiable portfolio.",
+          },
+        ],
+        diagram: [
+          "  Client & Enterprise Webapp (React + TypeScript)",
+          "  Dynamic Search ── Trade Filters ── QR Badge Verification",
+          "                     │",
+          "                     ▼",
+          "  Client-Side QR Engine (Dynamic Verification Slugs)",
+          "  Cryptographic URL verification for on-site visual audits",
+          "                     │",
+          "                     ▼",
+          "  High-Availability Database & Storage (Supabase / PostgreSQL)",
+          "  Vetted Artisans  │  Equipment Roster  │  City Hubs",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "On-site cryptographic QR verification",
+            detail:
+              "To combat impersonation and fraud on work sites, each professional profile generates a dynamic, scannable verification badge that clients can audit instantly on their own devices.",
+          },
+          {
+            title: "Two-sided service and equipment ecosystem",
+            detail:
+              "Decoupled skilled craftsmanship inquiries from heavy equipment and machinery rentals, creating purpose-built booking pipelines for both tradespeople and equipment fleets.",
+          },
+          {
+            title: "Lightweight, low-latency mobile performance",
+            detail:
+              "Engineered for real-world field conditions where workers and site managers rely on mobile devices with variable network speeds, prioritizing instant initial load and clean responsive touch targets.",
+          },
+          {
+            title: "Zero-friction direct connection",
+            detail:
+              "Removed unnecessary intermediary bottlenecks so verified clients can contact vetted artisans and equipment owners directly once identity credentials are confirmed.",
+          },
+        ],
+      },
+    },
+    {
+      title: "MiFi Desk",
+      category: "Companion Dashboard",
+      description:
+        "A lightweight companion dashboard for Glo 4G pocket routers. Shows live battery percentage, who is currently connected, signal strength and data usage on a single screen instead of dealing with the slow, cluttered default web portal.",
+      tech: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Vite",
+        "CGI Telemetry",
+      ],
+      image: "/mifi-desk.png",
+      liveLink: "https://mifi-desk.vercel.app/",
+      githubLink: "https://github.com/Sandee004/mifi-desk",
+      caseStudy: {
+        overview:
+          "MiFi Desk is a clean, personal companion dashboard built for Glo 4G MiFi routers. It polls the router's local endpoint to pull key telemetry — battery percentage, charging state, active connected devices, signal strength, and data usage — into a single, responsive interface.",
+        why: "The default Glo router admin portal (192.168.7.1) is slow to load, cluttered, and outdated. Finding out simple things like how much battery is left or who is connected meant clicking through multiple clumsy pages. I wanted a fast, calm dashboard that shows the essentials at a glance without the bloat.",
+        flowTitle: "How telemetry and modes work",
+        flow: [
+          {
+            title: "Poll local telemetry",
+            detail:
+              "In live mode, the dashboard polls the router’s /xml_action.cgi endpoint every two seconds to fetch battery level, signal quality, uptime, and bandwidth counters.",
+          },
+          {
+            title: "Decode device identities",
+            detail:
+              "The router returns connected device names in hex or UTF-16 byte strings. A decoder parses them into readable names (such as phones and laptops) and maps their local IP and MAC addresses.",
+          },
+          {
+            title: "Track active devices & usage",
+            detail:
+              "The dashboard displays connected devices with live traffic meters, allowing devices to be renamed or organized with custom friendly labels saved locally.",
+          },
+          {
+            title: "Quick Wi-Fi & SIM sharing",
+            detail:
+              "Generates an instant, scannable Wi-Fi QR code so guests can connect without typing passwords, along with one-tap copying of the MiFi SIM phone number for quick data top-ups.",
+          },
+          {
+            title: "Demo mode for external visitors",
+            detail:
+              "Because the physical router only responds on its private local IP (192.168.7.1), an integrated Demo View simulates realistic live telemetry, device traffic, and network toggles so anyone without a Glo MiFi can fully test and explore the dashboard.",
+          },
+        ],
+        diagram: [
+          "  MiFi Desk Dashboard (React + TypeScript + Vite)",
+          "  Live telemetry cards, connected device roster, Wi-Fi QR sharing",
+          "                 │",
+          "                 ├── [Live Mode] ──► GET /xml_action.cgi (192.168.7.1)",
+          "                 │                    ├─ Status: battery, signal, rx/tx speed",
+          "                 │                    ├─ Devices: hex-encoded names & MACs",
+          "                 │                    └─ Homepage/SIM: phone number, IMEI",
+          "                 │",
+          "                 └── [Demo Mode] ──► MockRouterClient (In-memory simulation)",
+          "                                      ├─ Realistic live traffic fluctuations",
+          "                                      ├─ Device join/leave simulations",
+          "                                      └─ Low battery & weak signal toggles",
+        ].join("\n"),
+        decisions: [
+          {
+            title: "Demo View for visitors without the router",
+            detail:
+              "The physical Glo MiFi only answers requests when a device is connected to its local Wi-Fi at 192.168.7.1. To let anyone view and test the project without owning the hardware, I built an interactive Demo View that simulates live telemetry, device connections, and toggleable battery/signal states.",
+          },
+          {
+            title: "Decoding raw router hex strings",
+            detail:
+              "The router firmware formats connected SSIDs and client hostnames into raw UTF-16BE hex strings (such as 004d0069... for Mines) or space-separated hex bytes. A universal decoder converts them on the fly into clean, human-readable device names.",
+          },
+          {
+            title: "Local-first persistence for custom names",
+            detail:
+              "Pocket routers don't allow renaming clients on the firmware itself. Friendly device nicknames (like personal laptops vs. phones) and saved Wi-Fi credentials are stored in localStorage so they persist across sessions without requiring a backend database.",
+          },
+          {
+            title: "Lightweight polling over heavy frameworks",
+            detail:
+              "Rather than adding complex server infrastructure, the dashboard runs entirely client-side. It polls the router's CGI endpoint directly with clean interval polling and low overhead, keeping the dashboard snappy and battery-friendly on laptops.",
+          },
+        ],
+      },
+    },
+    {
       title: "DCraftHouse",
       category: "Online shop",
       description:
@@ -394,15 +563,27 @@ export function Projects() {
                           : "opacity-0 pointer-events-none"
                       }`}
                     >
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
-                      >
-                        <Github size={15} />
-                        Source Code
-                      </a>
+                      {project.githubLink.includes("github.com") ? (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
+                        >
+                          <Github size={15} />
+                          Source Code
+                        </a>
+                      ) : project.liveLink ? (
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-gray-900/80 border border-white/20 text-white rounded-lg text-xs font-semibold hover:border-emerald-500 transition-colors backdrop-blur-md"
+                        >
+                          <ExternalLink size={15} />
+                          Visit Platform
+                        </a>
+                      ) : null}
                     </div>
                   </div>
 
